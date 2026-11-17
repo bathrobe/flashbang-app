@@ -10,10 +10,10 @@ import {
   timestamp,
 } from "drizzle-orm/pg-core";
 import { settings } from "../../../game/settings";
+import { user } from "./auth";
 import { atom, lecture, question } from "./content";
 
-// Every `user_id` here is plain text for now: the Better Auth `user` table arrives in
-// checklist item 3 (schema/auth.ts), which adds the foreign-key references to user.id.
+// Every `user_id` here points at Better Auth's `user` table (schema/auth.ts).
 
 // Calendar dates ("2026-11-16") are learner dates: see src/game/learnerDate.ts.
 // String mode keeps them as plain text in code, so no time zone can shift them.
@@ -23,7 +23,9 @@ const calendarDate = (columnName: string) => date(columnName, { mode: "string" }
 export const atomProgress = pgTable(
   "atom_progress",
   {
-    userId: text("user_id").notNull(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id),
     atomId: text("atom_id")
       .notNull()
       .references(() => atom.id),
@@ -45,7 +47,9 @@ export const atomProgress = pgTable(
 
 // One row per learner, created on their first signed-in visit.
 export const learnerState = pgTable("learner_state", {
-  userId: text("user_id").primaryKey(),
+  userId: text("user_id")
+    .primaryKey()
+    .references(() => user.id),
   clout: integer("clout").notNull().default(settings.clout.startingBalance),
   soundOn: boolean("sound_on").notNull().default(true),
   timeZone: text("time_zone"),
@@ -57,7 +61,9 @@ export const learnerState = pgTable("learner_state", {
 export const lectureProgress = pgTable(
   "lecture_progress",
   {
-    userId: text("user_id").notNull(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id),
     lectureId: text("lecture_id")
       .notNull()
       .references(() => lecture.id),

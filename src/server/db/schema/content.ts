@@ -10,6 +10,7 @@ import {
   timestamp,
   unique,
 } from "drizzle-orm/pg-core";
+import { user } from "./auth";
 import { course } from "./course";
 
 const newId = () => crypto.randomUUID();
@@ -71,9 +72,7 @@ export const question = pgTable(
       .default("draft"),
     flagNote: text("flag_note"),
     flaggedAt: timestamp("flagged_at", { withTimezone: true }),
-    // Plain text for now: the Better Auth `user` table arrives in checklist item 3
-    // (schema/auth.ts), which adds the foreign-key reference to user.id.
-    flaggedByUserId: text("flagged_by_user_id"),
+    flaggedByUserId: text("flagged_by_user_id").references(() => user.id),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
   },

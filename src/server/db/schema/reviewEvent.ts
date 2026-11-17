@@ -1,5 +1,6 @@
 import { boolean, date, index, integer, jsonb, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 import { confidenceSteps } from "../../../game/settings";
+import { user } from "./auth";
 import { atom, question } from "./content";
 
 export type LinkedXpGained = { atomId: string; xp: number }[];
@@ -24,9 +25,9 @@ export const reviewEvent = pgTable(
       .$defaultFn(() => crypto.randomUUID()),
     // Made by the browser once per card showing; unique, so a double click cannot count twice.
     attemptId: text("attempt_id").notNull().unique(),
-    // Plain text for now: the Better Auth `user` table arrives in checklist item 3
-    // (schema/auth.ts), which adds the foreign-key reference to user.id.
-    userId: text("user_id").notNull(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id),
     questionId: text("question_id")
       .notNull()
       .references(() => question.id),

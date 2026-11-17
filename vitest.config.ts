@@ -3,7 +3,7 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
-    // Only the plain-function rules are tested (src/game and src/content); no browser tests.
+    // Only plain functions are tested (src/game, src/content, the email-list check); no browser tests.
     include: ["tests/**/*.test.ts"],
     environment: "node",
   },
