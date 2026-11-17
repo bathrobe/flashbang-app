@@ -8,11 +8,24 @@ type PopoverProps = {
   triggerLabel: string; // read out by screen readers
   triggerClassName?: string;
   children: ReactNode; // what the opened panel holds
+  openOnHover?: boolean; // also open while the pointer is over it
+  align?: "left" | "right"; // which edge of the trigger the panel lines up with
+  panelWidthClassName?: string;
 };
 
 // A button that opens a small panel beneath itself. Clicking anywhere else,
-// or pressing Escape, closes it.
-export function Popover({ trigger, triggerLabel, triggerClassName = "", children }: PopoverProps) {
+// or pressing Escape, closes it. With openOnHover, pointing at it opens it too,
+// and a click opens rather than toggles (so hover-then-click never closes it).
+export function Popover({
+  trigger,
+  triggerLabel,
+  triggerClassName = "",
+  children,
+  openOnHover = false,
+  align = "right",
+  // max-w keeps the panel inside a narrow window.
+  panelWidthClassName = "w-max max-w-[80vw]",
+}: PopoverProps) {
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -35,19 +48,26 @@ export function Popover({ trigger, triggerLabel, triggerClassName = "", children
   }, [isOpen]);
 
   return (
-    <div ref={wrapperRef} className="relative">
+    <div
+      ref={wrapperRef}
+      className="relative"
+      onMouseEnter={openOnHover ? () => setIsOpen(true) : undefined}
+      onMouseLeave={openOnHover ? () => setIsOpen(false) : undefined}
+    >
       <button
         type="button"
         aria-label={triggerLabel}
         aria-expanded={isOpen}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen(openOnHover ? true : !isOpen)}
         className={`cursor-pointer ${triggerClassName}`}
       >
         {trigger}
       </button>
       {isOpen && (
-        // max-w keeps the panel inside a narrow window.
-        <Panel role="dialog" className="absolute right-0 top-full z-10 mt-2 w-max max-w-[80vw]">
+        <Panel
+          role="dialog"
+          className={`absolute top-full z-10 mt-2 ${panelWidthClassName} ${align === "left" ? "left-0" : "right-0"}`}
+        >
           {children}
         </Panel>
       )}

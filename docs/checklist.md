@@ -87,7 +87,7 @@ The build cannot do these itself. If one is not ready, record it in this list as
 
 ### The daily loop
 
-- [ ] **7. The signed-in shell shows the navbar with level, clout, inbox and sound toggle in the starting theme**
+- [x] **7. The signed-in shell shows the navbar with level, clout, inbox and sound toggle in the starting theme**
   Spec ref: `spec.md > Design System > Theme tokens`, `> Theme switching`, `> Starting theme`, `> Atom level looks`; `spec.md > App Shell` (all subsections); `spec.md > Queries`
   What to build: `src/app/theme.css` with every token group, `themes/starting.css`, the three fonts through `next/font/google`, and `data-theme` on `<html>`. `getHudValues`, `getNextDueDate`, creation of the `learner_state` row on first visit, `noteVisit` saving the time zone, `setSoundOn`. `HudProvider.tsx`, `Navbar.tsx`, `InboxButton.tsx`, `SoundToggle.tsx`, `AccountMenu.tsx`. The author link renders only for an admin.
   Acceptance: From `prd.md > Navigation Bar`: the navbar is on every signed-in page; username and avatar, or an initial; a badge with the session count only when atoms are due; "Nothing due" with the next date otherwise; learner level and clout shown; the app name returns to the courses view; the sound choice is remembered for the account.
