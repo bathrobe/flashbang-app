@@ -14,7 +14,8 @@ export type Submission =
 
 // Sending one card's answer, and where that stands. The HUD (navbar clout,
 // level, inbox badge) is updated from each result, no reload needed.
-export function useAnswerSubmission(attemptId: string, questionId: string, onNotDue: () => void) {
+// `isUncapped`: inside `/review?all=1`, so the badge counts every due atom.
+export function useAnswerSubmission(attemptId: string, questionId: string, isUncapped: boolean, onNotDue: () => void) {
   const { updateHud } = useHud();
   const [submission, setSubmission] = useState<Submission>({ status: "answering" });
 
@@ -23,7 +24,7 @@ export function useAnswerSubmission(attemptId: string, questionId: string, onNot
   async function send(answer: CardAnswer) {
     setSubmission({ status: "saving", answer });
     try {
-      const result = await submitAnswer({ attemptId, questionId, ...answer });
+      const result = await submitAnswer({ attemptId, questionId, ...answer, all: isUncapped });
       // Already answered in another tab: nothing was saved, so just move on.
       if (result.kind === "not_due") return onNotDue();
       updateHud({

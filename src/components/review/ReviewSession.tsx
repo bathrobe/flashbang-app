@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useHud } from "@/components/hud/HudProvider";
 import { Button } from "@/components/ui/Button";
 import { Panel } from "@/components/ui/Panel";
 import { getQueueAfterAnswer } from "@/game/sessionQueue";
@@ -12,8 +13,10 @@ import { useFrontCard } from "./useFrontCard";
 // One review session: the queue of atom ids lives here, in browser memory only.
 // Closing the tab loses nothing, because the page rebuilds the queue from the
 // database. Later changes to the `atomIds` prop are ignored on purpose.
-export function ReviewSession({ atomIds }: { atomIds: string[] }) {
+// `isUncapped`: this is `/review?all=1`, past the eased-return short session.
+export function ReviewSession({ atomIds, isUncapped }: { atomIds: string[]; isUncapped: boolean }) {
   const router = useRouter();
+  const { updateHud } = useHud();
   const [queue, setQueue] = useState(atomIds);
   const [showingNumber, setShowingNumber] = useState(0);
 
@@ -34,6 +37,12 @@ export function ReviewSession({ atomIds }: { atomIds: string[] }) {
     if (nextCard.kind === "first" || nextCard.kind === "retry") replaceFrontCard(nextCard);
     else moveOn(false);
   }
+
+  // The layout counted the badge with the cap; past it, the badge counts this whole queue.
+  useEffect(() => {
+    if (isUncapped) updateHud({ dueCount: atomIds.length });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- once, when the session opens
+  }, []);
 
   const isFinished = queue.length === 0;
   useEffect(() => {
@@ -62,6 +71,7 @@ export function ReviewSession({ atomIds }: { atomIds: string[] }) {
           key={frontCard.attemptId}
           card={frontCard.card}
           attemptId={frontCard.attemptId}
+          isUncapped={isUncapped}
           onDone={moveOn}
           onFlagged={showCardAfterFlag}
         />

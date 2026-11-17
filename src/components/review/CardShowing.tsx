@@ -17,16 +17,17 @@ import { useAnswerSubmission } from "./useAnswerSubmission";
 type CardShowingProps = {
   card: ShowableCard;
   attemptId: string; // one per showing; the session gives this component the same value as its key
+  isUncapped: boolean; // inside `/review?all=1`
   onDone: (frontAtomNeedsRetry: boolean) => void;
   onFlagged: (nextCard: LoadCardResult) => void; // the same atom's next card, or "no_questions"
 };
 
 // One showing of one card: answer, save, then the feedback panel and Continue.
 // The flag control sits beside Confirm, then beside Continue.
-export function CardShowing({ card, attemptId, onDone, onFlagged }: CardShowingProps) {
+export function CardShowing({ card, attemptId, isUncapped, onDone, onFlagged }: CardShowingProps) {
   const { updateHud } = useHud();
   const prefersReducedMotion = useReducedMotion();
-  const { submission, send } = useAnswerSubmission(attemptId, card.questionId, () => onDone(false));
+  const { submission, send } = useAnswerSubmission(attemptId, card.questionId, isUncapped, () => onDone(false));
   // Set by Continue on an answer that opened a trial door: the unveiling plays, then the session moves on.
   const [doorsToUnveil, setDoorsToUnveil] = useState<OpenedDoor[] | null>(null);
 
@@ -37,7 +38,9 @@ export function CardShowing({ card, attemptId, onDone, onFlagged }: CardShowingP
       updateHud(hud);
       onFlagged(nextCard);
     };
-    return <FlagControl questionId={card.questionId} attemptId={answeredAttemptId} onFlagged={handleFlagged} />;
+    return (
+      <FlagControl questionId={card.questionId} attemptId={answeredAttemptId} isUncapped={isUncapped} onFlagged={handleFlagged} />
+    );
   }
 
   let afterAnswer = null;

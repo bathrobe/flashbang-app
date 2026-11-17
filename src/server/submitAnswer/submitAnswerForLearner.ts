@@ -4,7 +4,7 @@ import { scoreAnswer } from "@/game/scoreAnswer";
 import type { SubmitAnswerResult } from "@/server/answerTypes";
 import { database } from "@/server/db/client";
 import type { DatabaseTransaction } from "@/server/db/transactionType";
-import { findDueAtoms } from "@/server/queries/dueAtoms";
+import { findNextSessionAtoms } from "@/server/queries/nextSessionAtoms";
 import { buildAnswerResult } from "./buildAnswerResult";
 import { insertReviewEvent } from "./insertReviewEvent";
 import { loadAnswerContext } from "./loadAnswerContext";
@@ -67,10 +67,15 @@ async function answerInTransaction(transaction: DatabaseTransaction, userId: str
   ];
   const openedDoors = grade.wasCorrect ? await openDoorIfEarned(transaction, userId, lectureIdsThatGainedXp, now) : [];
 
-  // Counted inside the transaction, so it already reflects this answer.
-  const dueAtoms = await findDueAtoms(userId, context.today, transaction);
+  // Counted inside the transaction, so it already reflects this answer. This
+  // answer's review_event row is written below, so a first attempt is added by hand.
+  const nextSession = await findNextSessionAtoms(userId, context.today, {
+    all: input.all,
+    reader: transaction,
+    firstAttemptsNotYetLogged: kind === "first" ? 1 : 0,
+  });
 
-  const result = buildAnswerResult(context, kind, grade, score, { dueCount: dueAtoms.length, openedDoors });
+  const result = buildAnswerResult(context, kind, grade, score, { dueCount: nextSession.atomIds.length, openedDoors });
   await insertReviewEvent(transaction, context, input, kind, score, result);
   return result;
 }

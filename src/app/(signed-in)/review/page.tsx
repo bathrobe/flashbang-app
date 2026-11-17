@@ -8,14 +8,15 @@ import { getSessionQueue } from "@/server/queries/getSessionQueue";
 export default async function ReviewPage({ searchParams }: PageProps<"/review">) {
   const { all } = await searchParams; // searchParams is a promise in Next.js 16
   const user = await requireLearner();
-  const atomIds = await getSessionQueue(user.id, { all: all === "1" });
+  const isUncapped = all === "1";
+  const atomIds = await getSessionQueue(user.id, { all: isUncapped });
 
   // Nothing to review: back to the courses view, which says when the next review is.
   if (atomIds.length === 0) redirect("/courses");
 
   return (
     <main className="mx-auto max-w-2xl p-4">
-      <ReviewSession atomIds={atomIds} />
+      <ReviewSession atomIds={atomIds} isUncapped={isUncapped} />
     </main>
   );
 }

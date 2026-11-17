@@ -12,9 +12,10 @@ export function VisitReporter() {
   useEffect(() => {
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     noteVisit(timeZone)
-      .then(({ timeZoneChanged }) => {
-        // A new time zone can change what is due today, so ask the server again.
-        if (timeZoneChanged) router.refresh();
+      .then(({ timeZoneChanged, easedReturnStarted }) => {
+        // A new time zone can change what is due today, and a return after a
+        // gap brings the welcome-back message and the short count: ask again.
+        if (timeZoneChanged || easedReturnStarted) router.refresh();
       })
       .catch(() => {
         // Not worth interrupting anyone: the server keeps the zone it had.

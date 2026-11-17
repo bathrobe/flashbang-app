@@ -12,6 +12,8 @@ export const flagQuestionInputShape = z.object({
     .optional()
     .transform((note) => note?.trim().slice(0, flagNoteMaxLength) || null),
   attemptId: z.string().min(1).max(100).optional(),
+  // True inside `/review?all=1`, so the returned badge count ignores the eased-return cap.
+  all: z.boolean().optional(),
 });
 
 export type FlagQuestionInput = z.infer<typeof flagQuestionInputShape>;

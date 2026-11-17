@@ -1,6 +1,7 @@
 import { eq } from "drizzle-orm";
 import { database } from "@/server/db/client";
 import { learnerState } from "@/server/db/schema";
+import { startEasedReturnIfAway } from "./easedReturn";
 
 // Plain functions that write the learner_state row. The server actions
 // (actions/noteVisit.ts, actions/setSoundOn.ts) check access, then call these.
@@ -21,17 +22,21 @@ function isKnownTimeZone(timeZone: string) {
   }
 }
 
-// Saves the time zone the browser reported, which decides what "today" is.
-// Returns whether it changed, so the page knows to reload its numbers.
-export async function recordVisit(userId: string, timeZone: string) {
-  if (!isKnownTimeZone(timeZone)) return { timeZoneChanged: false };
-
+// Saves the time zone the browser reported, which decides what "today" is,
+// then checks for a return after a gap (in that time zone's today).
+// Returns what changed, so the page knows to reload its numbers.
+export async function recordVisit(userId: string, timeZone: string, now: Date = new Date()) {
   await ensureLearnerState(userId);
-  const [stateRow] = await database.select().from(learnerState).where(eq(learnerState.userId, userId));
-  if (stateRow.timeZone === timeZone) return { timeZoneChanged: false };
+  const timeZoneChanged = isKnownTimeZone(timeZone) && (await saveTimeZone(userId, timeZone));
+  const easedReturnStarted = await startEasedReturnIfAway(userId, now);
+  return { timeZoneChanged, easedReturnStarted };
+}
 
+async function saveTimeZone(userId: string, timeZone: string) {
+  const [stateRow] = await database.select().from(learnerState).where(eq(learnerState.userId, userId));
+  if (stateRow.timeZone === timeZone) return false;
   await database.update(learnerState).set({ timeZone }).where(eq(learnerState.userId, userId));
-  return { timeZoneChanged: true };
+  return true;
 }
 
 export async function saveSoundOn(userId: string, soundOn: boolean) {

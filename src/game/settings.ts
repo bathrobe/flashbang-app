@@ -35,6 +35,13 @@ export const settings = {
     allInMinimumGain: 25,
   },
 
+  easedReturn: {
+    // Seven or more days since the last review counts as coming back after a gap.
+    gapDays: 7,
+    // While easing back in, a day's sessions together hold this many first attempts.
+    shortSessionSize: 5,
+  },
+
   learnerDay: {
     // The learner's day starts at 04:00, so a review at 1 a.m. counts as the day before.
     startHour: 4,

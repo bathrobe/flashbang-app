@@ -1,9 +1,8 @@
-import Link from "next/link";
 import { redirect } from "next/navigation";
+import { EndScreenControls } from "@/components/end/EndScreenControls";
 import { SessionMap } from "@/components/end/SessionMap";
 import { SessionTotals } from "@/components/end/SessionTotals";
 import { SpoilsList } from "@/components/end/SpoilsList";
-import { getButtonLook } from "@/components/ui/buttonLook";
 import { Panel } from "@/components/ui/Panel";
 import { requireLearner } from "@/server/access";
 import { getTodaySummary } from "@/server/queries/getTodaySummary";
@@ -37,9 +36,7 @@ export default async function ReviewDonePage() {
       <Panel>
         <SessionMap map={summary.map} />
       </Panel>
-      <Link href={backHref} className={getButtonLook("accent-1", "self-start")}>
-        Back to the course
-      </Link>
+      <EndScreenControls backHref={backHref} keepGoingCount={summary.keepGoingCount} />
     </main>
   );
 }

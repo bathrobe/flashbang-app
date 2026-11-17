@@ -22,7 +22,7 @@ export async function flagQuestionForLearner(userId: string, input: FlagQuestion
     flagInTransaction(transaction, userId, input, now),
   );
 
-  const [nextCard, hudValues] = await Promise.all([loadCardForLearner(userId, mainAtomId, today), getHudValues(userId, now)]);
+  const [nextCard, hudValues] = await Promise.all([loadCardForLearner(userId, mainAtomId, today), getHudValues(userId, now, { all: input.all })]);
   const { clout, learnerLevel, totalXp, dueCount } = hudValues;
   return { nextCard, answerUndone, hud: { clout, learnerLevel, totalXp, dueCount } };
 }

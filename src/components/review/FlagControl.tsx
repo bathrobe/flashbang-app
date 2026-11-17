@@ -11,19 +11,20 @@ import { flagNoteMaxLength } from "@/server/flagQuestion/flagQuestionInput";
 type FlagControlProps = {
   questionId: string;
   attemptId?: string; // only on the feedback panel: the answer the flag undoes
+  isUncapped: boolean; // inside `/review?all=1`: the badge count ignores the eased-return cap
   onFlagged: (result: FlagQuestionResult) => void;
 };
 
 // "Flag" opens a small box: an optional note saying what was wrong, and Flag.
 // The question leaves rotation at once; an answer to it is undone.
-export function FlagControl({ questionId, attemptId, onFlagged }: FlagControlProps) {
+export function FlagControl({ questionId, attemptId, isUncapped, onFlagged }: FlagControlProps) {
   const [note, setNote] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "failed">("idle");
 
   async function sendFlag() {
     setStatus("sending");
     try {
-      onFlagged(await flagQuestion({ questionId, note, attemptId }));
+      onFlagged(await flagQuestion({ questionId, note, attemptId, all: isUncapped }));
     } catch {
       setStatus("failed");
     }

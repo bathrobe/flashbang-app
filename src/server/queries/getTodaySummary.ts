@@ -8,6 +8,7 @@ import { getLearnerToday } from "./learnerToday";
 import { loadDoorProgress } from "./loadDoorProgress";
 import { loadSessionMapQuestions } from "./loadSessionMapQuestions";
 import { loadTodayEvents } from "./loadTodayEvents";
+import { findNextSessionAtoms } from "./nextSessionAtoms";
 
 // Everything the end screen shows, added up from today's answers. Null when
 // the learner has answered nothing today. This file only loads rows; the
@@ -50,9 +51,10 @@ export async function getTodaySummary(userId: string, now: Date = new Date()) {
   const mapAtoms = [...totals.reviewedAtoms, ...totals.linkedOnlyAtoms];
   const mapAtomIds = mapAtoms.map((mapAtom) => mapAtom.atomId);
   const touchedLectureIds = [...new Set(atomRows.map((row) => row.lectureId))];
-  const [mapQuestions, doorProgress] = await Promise.all([
+  const [mapQuestions, doorProgress, nextSession] = await Promise.all([
     loadSessionMapQuestions(mapAtomIds),
     loadDoorProgress(userId, touchedLectureIds),
+    findNextSessionAtoms(userId, today),
   ]);
 
   return {
@@ -60,6 +62,8 @@ export async function getTodaySummary(userId: string, now: Date = new Date()) {
     ...totals,
     doorProgress,
     nextDueDate,
+    // Due atoms the eased-return short session held back: "Keep going" offers them.
+    keepGoingCount: nextSession.leftForLater,
     // The course of the first atom answered today: where "Back to the course" leads.
     courseSlug: atomRows.find((row) => row.atomId === events[0].mainAtomId)?.courseSlug ?? atomRows[0]?.courseSlug ?? null,
     map: {
