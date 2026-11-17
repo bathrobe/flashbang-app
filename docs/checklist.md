@@ -173,7 +173,7 @@ The build cannot do these itself. If one is not ready, record it in this list as
   Acceptance: From the images story in `prd.md > Review Session`: a question may have one image; a question without one looks complete; every image shows a credit line; no images from the Great Courses materials; if an image fails to load the card is still answerable.
   Verify: Run `pnpm dev`, review until an image card appears and confirm the image and credit. Set one question's path to a file that does not exist and confirm the card shows no gap and can be answered.
 
-- [ ] **21. The theme playground shows every component in every state**
+- [x] **21. The theme playground shows every component in every state**
   Spec ref: `spec.md > Design System > Theme playground`, `> Starting theme`
   What to build: `(signed-in)/theme/page.tsx`, admin only, with fixed sample data: option buttons in six states, the slider at each step, XP bars at several fills, all five level looks, the navbar, a feedback panel right and wrong, the door locked and open. Check every option state against the 4.5 to 1 contrast rule and fix the starting theme's tokens where it fails.
   Acceptance: From the legibility criterion in `prd.md > Review Session`: text on every button and option is easy to read in every state: resting, hovered, chosen, correct, wrong. Levels can be told apart without reading a number.

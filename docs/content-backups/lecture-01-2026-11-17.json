@@ -1,0 +1,1546 @@
+{
+  "lecture": {
+    "number": 1,
+    "title": "Why Athenian Democracy Matters",
+    "status": "draft"
+  },
+  "atoms": [
+    {
+      "id": "f11da4c5-e6a4-4d2c-a2cd-df5cc95f7ac5",
+      "position": 1,
+      "sentence": "Athenian democracy rested on twin pillars: direct political participation and equality before the law, including trial by jury of one's peers.",
+      "transcriptRef": "transcripts/01-why-athenian-democracy-matters.md [00:06:00]",
+      "status": "active"
+    },
+    {
+      "id": "59044ce1-5ef7-44c7-a78b-ad3372390c0b",
+      "position": 2,
+      "sentence": "Sortition was the most ideological choice Athens made: it expressed faith in the ordinary, unqualified citizen, while election was reserved for the one office expertise couldn't be left to chance.",
+      "transcriptRef": "transcripts/01-why-athenian-democracy-matters.md [00:31:01, 00:30:01]",
+      "status": "active"
+    },
+    {
+      "id": "b96fd3e3-b63a-43d0-b85c-4c47f7a8f9a5",
+      "position": 3,
+      "sentence": "Before dēmokratia was even coined, the regime had other names: isonomia (equal laws), isegoria (equal speech), parrhesia (saying everything), and eleutheria (freedom) — Herodotus calls isonomia \"the most beautiful name of all.\"",
+      "transcriptRef": "transcripts/01-why-athenian-democracy-matters.md [00:13:06]",
+      "status": "active"
+    },
+    {
+      "id": "e9373845-8911-4ea7-80d4-82658d849fc2",
+      "position": 4,
+      "sentence": "The regime's three standing contradictions: it was a slave society, it excluded women from any political or legal identity, and it ran an empire it held by massacres.",
+      "transcriptRef": "transcripts/01-why-athenian-democracy-matters.md [00:14:01]",
+      "status": "active"
+    },
+    {
+      "id": "7d3c6d6a-ad72-4001-a9bc-65fae9735e0a",
+      "position": 5,
+      "sentence": "Athenian democracy evolved over ~300 years without a revolution and without ideology — aristocrats built it partly to advance their own interests.",
+      "transcriptRef": "transcripts/01-why-athenian-democracy-matters.md [00:10:04]",
+      "status": "active"
+    },
+    {
+      "id": "9534eec6-7ec3-4ed6-90bf-a18e52b72718",
+      "position": 6,
+      "sentence": "There was no accountability in the Assembly: the proposer of a disastrous policy faced no charge, because the vote — not the speaker — bore responsibility.",
+      "transcriptRef": "transcripts/01-why-athenian-democracy-matters.md [00:31:01]",
+      "status": "active"
+    },
+    {
+      "id": "b24246a5-6976-4d1b-b126-0fd43c1b9854",
+      "position": 7,
+      "sentence": "Dēmokratia means \"people power,\" but the word arrived late: its first recorded use is Pericles' funeral oration (431 BC), over a century after democracy of sorts began.",
+      "transcriptRef": "transcripts/01-why-athenian-democracy-matters.md [00:12:04]",
+      "status": "active"
+    }
+  ],
+  "questions": [
+    {
+      "id": "6c6a8790-38b9-4a11-b307-a51e26e3a92c",
+      "status": "draft",
+      "mainAtomId": "f11da4c5-e6a4-4d2c-a2cd-df5cc95f7ac5",
+      "format": "multiple_choice",
+      "prompt": "Garland says Athenian democracy rested on \"twin pillars\", one political and one legal. Which pair does he mean?",
+      "options": [
+        {
+          "id": "2b5601b0",
+          "text": "Elected representatives and a written constitution",
+          "isCorrect": false
+        },
+        {
+          "id": "6e36b782",
+          "text": "Direct participation and equality before the law",
+          "isCorrect": true
+        },
+        {
+          "id": "2b6c35b0",
+          "text": "Selection by lot and compulsory military service",
+          "isCorrect": false
+        },
+        {
+          "id": "e882c13e",
+          "text": "Freedom of speech and the sharing out of wealth",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The political pillar was every citizen's right to take part directly in decisions. The legal pillar was equality before the law, including trial by a jury of one's peers. The lot and military service were real features of Athens too, but they are not what Garland calls its foundations.",
+      "isIntroductory": true,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "245443b7-7e35-4a70-93ea-9c2b8d8120dd",
+      "status": "draft",
+      "mainAtomId": "f11da4c5-e6a4-4d2c-a2cd-df5cc95f7ac5",
+      "format": "multiple_choice",
+      "prompt": "Why does Garland say no Athenian would have thought that we live under a democracy?",
+      "options": [
+        {
+          "id": "c2431df1",
+          "text": "Our juries are far smaller than Athenian ones were",
+          "isCorrect": false
+        },
+        {
+          "id": "7d656e3b",
+          "text": "Our elections are held several years apart",
+          "isCorrect": false
+        },
+        {
+          "id": "1b13f554",
+          "text": "Most of us take no direct part in decisions",
+          "isCorrect": true
+        },
+        {
+          "id": "c7b32a0e",
+          "text": "Our voters include people who own no land",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The political pillar of Athenian democracy was direct participation: citizens made the decisions themselves. Beside it stood the legal pillar, equality before the law and trial by a jury of peers. Modern democracies are representative, so most of us never take part directly. Athens was a city-state with perhaps 30,000 to 50,000 citizens, and they were the decision-makers.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "2adaa009-40a9-483d-8393-f92dc38c7739",
+      "status": "draft",
+      "mainAtomId": "f11da4c5-e6a4-4d2c-a2cd-df5cc95f7ac5",
+      "format": "multi_select",
+      "prompt": "Which of these belong to the legal pillar of Athenian democracy, as Garland describes it?",
+      "options": [
+        {
+          "id": "b8fb4a7f",
+          "text": "Equality before the law",
+          "isCorrect": true
+        },
+        {
+          "id": "9a8de801",
+          "text": "Voting in the Assembly",
+          "isCorrect": false
+        },
+        {
+          "id": "b5139961",
+          "text": "Judgment by a jury of peers",
+          "isCorrect": true
+        },
+        {
+          "id": "7027d5df",
+          "text": "A year's service on the council",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The legal pillar was equality before the law and the right to be judged by a jury of your peers. The political pillar was taking part directly in decisions, which is where the Assembly and the council belong. The Greeks had an old name for the legal ideal: isonomia, equal laws.",
+      "isIntroductory": false,
+      "linkedAtoms": [
+        {
+          "atomId": "b96fd3e3-b63a-43d0-b85c-4c47f7a8f9a5",
+          "weight": 0.3
+        }
+      ],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "a27eef05-e94c-417a-b267-6f9060e49d75",
+      "status": "draft",
+      "mainAtomId": "f11da4c5-e6a4-4d2c-a2cd-df5cc95f7ac5",
+      "format": "multi_select",
+      "prompt": "Garland calls being an Athenian citizen \"a full-time job\". Which duties does he list?",
+      "options": [
+        {
+          "id": "887b43ef",
+          "text": "Attending the Assembly",
+          "isCorrect": true
+        },
+        {
+          "id": "603e8eec",
+          "text": "Standing for election to public office",
+          "isCorrect": false
+        },
+        {
+          "id": "00d32913",
+          "text": "Serving on the council for a year",
+          "isCorrect": true
+        },
+        {
+          "id": "6befa936",
+          "text": "Compulsory military service",
+          "isCorrect": true
+        },
+        {
+          "id": "8f199760",
+          "text": "Paying a yearly tax on income",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Direct participation, the political pillar, meant that citizens did the governing themselves instead of handing it to representatives. The other pillar was equality before the law and trial by a jury of peers. Garland's verdict is that the individual served the state to a degree no modern democracy would accept.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "0af3e265-1e3e-4a84-83e3-1dc982f59db5",
+      "status": "draft",
+      "mainAtomId": "f11da4c5-e6a4-4d2c-a2cd-df5cc95f7ac5",
+      "format": "true_false",
+      "prompt": "Direct participation meant that most of the people living in Athens had a say in its decisions.",
+      "options": [
+        {
+          "id": "true",
+          "text": "True",
+          "isCorrect": false
+        },
+        {
+          "id": "false",
+          "text": "False",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "Direct participation was the political pillar and equality before the law, with jury trial, was the legal one, but both belonged to citizens. Garland puts citizens at perhaps 10 to 20 percent of the population. Women had no political or legal identity, and Athens was a slave society.",
+      "isIntroductory": false,
+      "linkedAtoms": [
+        {
+          "atomId": "e9373845-8911-4ea7-80d4-82658d849fc2",
+          "weight": 0.4
+        }
+      ],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "d04d60d5-1b08-401d-be1d-9c674784201a",
+      "status": "draft",
+      "mainAtomId": "f11da4c5-e6a4-4d2c-a2cd-df5cc95f7ac5",
+      "format": "true_false",
+      "prompt": "Garland believes the Athenians would have agreed with Justice Scalia's remark that juries are the \"spinal column\" of a democracy.",
+      "options": [
+        {
+          "id": "true",
+          "text": "True",
+          "isCorrect": true
+        },
+        {
+          "id": "false",
+          "text": "False",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Trial by a jury of one's peers, with equality before the law, was the legal pillar of Athenian democracy. It stood beside the political pillar, direct participation in decisions. Garland later points out that Aeschylus' trilogy the Oresteia puts the founding of jury trial at Athens on stage.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "0e83b24f-2aff-4656-8ff7-b49221bccbb9",
+      "status": "draft",
+      "mainAtomId": "59044ce1-5ef7-44c7-a78b-ad3372390c0b",
+      "format": "multiple_choice",
+      "prompt": "How did Athens fill almost all of its offices of state?",
+      "options": [
+        {
+          "id": "9dda827d",
+          "text": "By a show of hands in the Assembly",
+          "isCorrect": false
+        },
+        {
+          "id": "97f92226",
+          "text": "By appointment from the council",
+          "isCorrect": false
+        },
+        {
+          "id": "a124f617",
+          "text": "By drawing lots among the citizens",
+          "isCorrect": true
+        },
+        {
+          "id": "988e0dd5",
+          "text": "By rotation among leading families",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The lot decided every office of state except the generalship, which went to a popular vote because military skill could not be left to chance. Choosing by lot was a statement of faith in the ordinary citizen. Garland says it takes his breath away, and adds that no qualifications were needed for any office.",
+      "isIntroductory": true,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "7703a54a-7c01-41dd-b0b0-1481bb6813c5",
+      "status": "draft",
+      "mainAtomId": "59044ce1-5ef7-44c7-a78b-ad3372390c0b",
+      "format": "multiple_choice",
+      "prompt": "The generalship was the one office Athens filled by vote. What does Garland say set it apart?",
+      "options": [
+        {
+          "id": "d31cdd7e",
+          "text": "It was the one post that handled public money",
+          "isCorrect": false
+        },
+        {
+          "id": "bc0f1b0c",
+          "text": "It was the one post with a religious function",
+          "isCorrect": false
+        },
+        {
+          "id": "b52668d3",
+          "text": "It was the one post held for more than a year",
+          "isCorrect": false
+        },
+        {
+          "id": "c64c48c0",
+          "text": "It was the one post that called for expertise",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "Athens used the lot for its offices because it trusted the ordinary, unqualified citizen, and it kept election for the single job where it relied on expertise: command in war. Even there it spread the power. There were ten generals of equal rank and no commander-in-chief.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "f69cb64e-ec73-4f48-b702-25f96ebec34a",
+      "status": "draft",
+      "mainAtomId": "59044ce1-5ef7-44c7-a78b-ad3372390c0b",
+      "format": "multi_select",
+      "prompt": "What does the use of the lot show about Athens, in Garland's reading?",
+      "options": [
+        {
+          "id": "11f65453",
+          "text": "Trust in the ordinary citizen",
+          "isCorrect": true
+        },
+        {
+          "id": "3dda404c",
+          "text": "A wish to shut aristocrats out",
+          "isCorrect": false
+        },
+        {
+          "id": "246a9e92",
+          "text": "No qualifications for office",
+          "isCorrect": true
+        },
+        {
+          "id": "4c0159ba",
+          "text": "A shortage of willing candidates",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Choosing officials by lot was the most ideological thing Athens did. It said that any citizen, without qualifications or experience, could be trusted with office, while election was kept for the generals. It was not aimed at the elite: Garland says the democracy was not anti-aristocratic, and aristocrats led its politics until around 430 BC.",
+      "isIntroductory": false,
+      "linkedAtoms": [
+        {
+          "atomId": "7d3c6d6a-ad72-4001-a9bc-65fae9735e0a",
+          "weight": 0.3
+        }
+      ],
+      "imagePath": "/question-images/kleroterion.jpg",
+      "imageCredit": "A kleroterion (allotment machine), Ancient Agora Museum, Athens. Marsyas, CC BY-SA 2.5, via Wikimedia Commons.",
+      "imageKind": "sourced",
+      "flagNote": null
+    },
+    {
+      "id": "82ed9db9-ceb0-45b2-8283-878e35934e51",
+      "status": "draft",
+      "mainAtomId": "59044ce1-5ef7-44c7-a78b-ad3372390c0b",
+      "format": "multi_select",
+      "prompt": "Which statements about Athens's generals match the lecture?",
+      "options": [
+        {
+          "id": "0ffa468b",
+          "text": "There were ten at a time",
+          "isCorrect": true
+        },
+        {
+          "id": "7ba57efc",
+          "text": "One of them held supreme command",
+          "isCorrect": false
+        },
+        {
+          "id": "a24097e7",
+          "text": "They were equal in rank",
+          "isCorrect": true
+        },
+        {
+          "id": "5d586951",
+          "text": "They were chosen by popular vote",
+          "isCorrect": true
+        },
+        {
+          "id": "70c683c4",
+          "text": "They were drawn by lot each year",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The generalship was the exception to the lot. It was filled by popular vote, because this was the one office where Athens relied on expertise and not on its faith in the ordinary citizen. There was no commander-in-chief, and Garland says the ten competed with one another even on the battlefield.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "aa2bdbe6-63a2-4878-8058-7968c839e0cc",
+      "status": "draft",
+      "mainAtomId": "59044ce1-5ef7-44c7-a78b-ad3372390c0b",
+      "format": "true_false",
+      "prompt": "Because offices were filled by lot, Garland says, the men who dominated Athenian politics were mostly men of no special ability.",
+      "options": [
+        {
+          "id": "true",
+          "text": "True",
+          "isCorrect": false
+        },
+        {
+          "id": "false",
+          "text": "False",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "The lot expressed faith in the ordinary, unqualified citizen, and it decided every office except the elected generalship. It did not flatten everything. Garland says talent tends to rise in any system, and that the men who dominated Athens were mostly talented and, until around 430 BC, aristocratic.",
+      "isIntroductory": false,
+      "linkedAtoms": [
+        {
+          "atomId": "7d3c6d6a-ad72-4001-a9bc-65fae9735e0a",
+          "weight": 0.3
+        }
+      ],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "411b3dda-cad3-4e73-9f70-ee9164feff85",
+      "status": "draft",
+      "mainAtomId": "59044ce1-5ef7-44c7-a78b-ad3372390c0b",
+      "format": "true_false",
+      "prompt": "Before his name could go into the lot for an office, an Athenian citizen had to show some relevant experience.",
+      "options": [
+        {
+          "id": "true",
+          "text": "True",
+          "isCorrect": false
+        },
+        {
+          "id": "false",
+          "text": "False",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "No qualifications were needed for any office. That is what made the lot so ideological: it trusted the ordinary, inexperienced citizen with the running of the state, and kept election for the generalship, where expertise could not be left to chance. Garland adds that Athens had no select committees of experts either.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "09a50080-64f3-4964-8946-abaa0b67fdab",
+      "status": "draft",
+      "mainAtomId": "b96fd3e3-b63a-43d0-b85c-4c47f7a8f9a5",
+      "format": "multiple_choice",
+      "prompt": "Herodotus wrote that rule by the masses has \"the most beautiful name of all\". Which name did he mean?",
+      "options": [
+        {
+          "id": "213c517c",
+          "text": "Isegoria",
+          "isCorrect": false
+        },
+        {
+          "id": "2de23b2e",
+          "text": "Isonomia",
+          "isCorrect": true
+        },
+        {
+          "id": "66843279",
+          "text": "Parrhesia",
+          "isCorrect": false
+        },
+        {
+          "id": "67ecdc1c",
+          "text": "Eleutheria",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Isonomia means equal laws for all. It is one of the names the regime had before the word dēmokratia was coined; the others are isegoria (equal speech), parrhesia (saying everything) and eleutheria (freedom). Herodotus was a generation older than Thucydides, whose history holds what Garland calls the first recorded use of dēmokratia.",
+      "isIntroductory": true,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "9d49da87-6417-459d-883b-5e585a9212ad",
+      "status": "draft",
+      "mainAtomId": "b96fd3e3-b63a-43d0-b85c-4c47f7a8f9a5",
+      "format": "multiple_choice",
+      "prompt": "Eleutheria, freedom, took on a sharper political meaning at one particular moment. When, according to Garland?",
+      "options": [
+        {
+          "id": "4015a847",
+          "text": "When Greeks faced conquest by the Persian king",
+          "isCorrect": true
+        },
+        {
+          "id": "71db2e66",
+          "text": "When Solon set out his reforms in his poems",
+          "isCorrect": false
+        },
+        {
+          "id": "84734a81",
+          "text": "When Athens was defeated by Sparta in 404 BC",
+          "isCorrect": false
+        },
+        {
+          "id": "b252cfb9",
+          "text": "When Pericles spoke over the Athenian war dead",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Eleutheria is one of the names for the regime's ideals that are older than the word dēmokratia, with isonomia (equal laws), isegoria (equal speech) and parrhesia (saying everything). It became a political word during the Greco-Persian Wars, when defeat would have meant enslavement to an autocratic monarchy.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "a8aad073-f333-4007-9ef3-bf8b9838e409",
+      "status": "draft",
+      "mainAtomId": "b96fd3e3-b63a-43d0-b85c-4c47f7a8f9a5",
+      "format": "multi_select",
+      "prompt": "Which of these terms are about speech?",
+      "options": [
+        {
+          "id": "209af666",
+          "text": "Isonomia",
+          "isCorrect": false
+        },
+        {
+          "id": "1b70b3b1",
+          "text": "Isegoria",
+          "isCorrect": true
+        },
+        {
+          "id": "4a736e4b",
+          "text": "Eleutheria",
+          "isCorrect": false
+        },
+        {
+          "id": "a8f5e833",
+          "text": "Parrhesia",
+          "isCorrect": true
+        },
+        {
+          "id": "083bd215",
+          "text": "To ison",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Isegoria is equal speech: the same right to speak for each citizen. Parrhesia is \"saying everything\", close to our freedom of speech. Isonomia is equal laws and eleutheria is freedom. All four were names for the regime before dēmokratia was coined. To ison, another early term Garland mentions, is simply \"the equal thing\": equality.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "339a8c91-6062-4065-8106-2b8e300b3705",
+      "status": "draft",
+      "mainAtomId": "b96fd3e3-b63a-43d0-b85c-4c47f7a8f9a5",
+      "format": "multi_select",
+      "prompt": "Which of these pairings of a Greek term and its meaning are right?",
+      "options": [
+        {
+          "id": "6504c457",
+          "text": "Isonomia: equal laws",
+          "isCorrect": true
+        },
+        {
+          "id": "d65ca3f1",
+          "text": "Isegoria: equal votes",
+          "isCorrect": false
+        },
+        {
+          "id": "17761c44",
+          "text": "Parrhesia: saying everything",
+          "isCorrect": true
+        },
+        {
+          "id": "ff0de84e",
+          "text": "Ochlokratia: rule by the few",
+          "isCorrect": false
+        },
+        {
+          "id": "90b056fd",
+          "text": "Eleutheria: freedom",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "Before dēmokratia was coined, the regime went by the names of its ideals: isonomia (equal laws), isegoria (equal speech, not equal votes), parrhesia (saying everything) and eleutheria (freedom). Ochlokratia is the odd one out. It means rule by the ochlos, the rabble, and it was what aristocrats called the democracy to show their disdain.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "42e58f28-33e5-48e6-acda-16406b094353",
+      "status": "draft",
+      "mainAtomId": "b96fd3e3-b63a-43d0-b85c-4c47f7a8f9a5",
+      "format": "true_false",
+      "prompt": "Garland says that words such as isonomia and isegoria were in use before the word dēmokratia is first recorded.",
+      "options": [
+        {
+          "id": "true",
+          "text": "True",
+          "isCorrect": true
+        },
+        {
+          "id": "false",
+          "text": "False",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The regime had names before it had its name: isonomia (equal laws), isegoria (equal speech), parrhesia (saying everything) and eleutheria (freedom). Dēmokratia itself is first recorded in 431 BC, in the funeral speech of Pericles that Thucydides preserves, well over a century after a democracy of sorts began.",
+      "isIntroductory": false,
+      "linkedAtoms": [
+        {
+          "atomId": "b24246a5-6976-4d1b-b126-0fd43c1b9854",
+          "weight": 0.5
+        }
+      ],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "47fffde6-48ea-4eb8-a794-d031d2dd1bea",
+      "status": "draft",
+      "mainAtomId": "b96fd3e3-b63a-43d0-b85c-4c47f7a8f9a5",
+      "format": "true_false",
+      "prompt": "Ochlokratia was another of the admiring names that democrats gave their own regime.",
+      "options": [
+        {
+          "id": "true",
+          "text": "True",
+          "isCorrect": false
+        },
+        {
+          "id": "false",
+          "text": "False",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "Ochlokratia, rule by the ochlos or rabble, was the aristocrats' sneer; Garland says you can hear them spitting the word. The admiring names, in use before dēmokratia was coined, were isonomia (equal laws), isegoria (equal speech), parrhesia (saying everything) and eleutheria (freedom). The sneer plays on one sense of demos: the poor majority, not the whole people.",
+      "isIntroductory": false,
+      "linkedAtoms": [
+        {
+          "atomId": "b24246a5-6976-4d1b-b126-0fd43c1b9854",
+          "weight": 0.3
+        }
+      ],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "dbf79031-df83-463d-92de-a2b198c31132",
+      "status": "draft",
+      "mainAtomId": "e9373845-8911-4ea7-80d4-82658d849fc2",
+      "format": "multiple_choice",
+      "prompt": "Garland names three ways Athenian democracy looks anomalous to us. Two are slavery and the exclusion of women. What is the third?",
+      "options": [
+        {
+          "id": "939c99de",
+          "text": "Its denial of rights to resident foreigners",
+          "isCorrect": false
+        },
+        {
+          "id": "36b81e92",
+          "text": "Its trial and execution of Socrates",
+          "isCorrect": false
+        },
+        {
+          "id": "709fb25c",
+          "text": "Its use of exile against its own leaders",
+          "isCorrect": false
+        },
+        {
+          "id": "5954bfd3",
+          "text": "Its harsh rule over an empire of Greeks",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "The three standing contradictions are that Athens was a slave society, that women had no political or legal identity, and that it ran an empire over fellow Greeks. Garland is blunt about the last. Athens did not just tax its subjects; it massacred those who refused to obey.",
+      "isIntroductory": true,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "fe788f73-ecdb-4568-9700-f2abc60b1a9c",
+      "status": "draft",
+      "mainAtomId": "e9373845-8911-4ea7-80d4-82658d849fc2",
+      "format": "multiple_choice",
+      "prompt": "In 1952 the historian A. H. M. Jones argued that freeing the slaves would have made little difference to the democracy. Why does Garland disagree?",
+      "options": [
+        {
+          "id": "283d6658",
+          "text": "Jones put the number of slaves far too low",
+          "isCorrect": true
+        },
+        {
+          "id": "e26da212",
+          "text": "Jones left the silver mines out of his count",
+          "isCorrect": false
+        },
+        {
+          "id": "155b8f3c",
+          "text": "Jones assumed slaves could sit on juries",
+          "isCorrect": false
+        },
+        {
+          "id": "daa15e57",
+          "text": "Jones wrote before the Agora was excavated",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Athens was a slave society, one of its three contradictions alongside the exclusion of women and an empire held by massacre. Jones believed there were 20,000 slaves. Garland thinks five or even ten times as many is more credible, and says their labour gave many citizens the leisure to attend the Assembly and hold office.",
+      "isIntroductory": false,
+      "linkedAtoms": [
+        {
+          "atomId": "f11da4c5-e6a4-4d2c-a2cd-df5cc95f7ac5",
+          "weight": 0.3
+        }
+      ],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "a25a15f1-463a-495a-a58f-5095b35193c4",
+      "status": "draft",
+      "mainAtomId": "e9373845-8911-4ea7-80d4-82658d849fc2",
+      "format": "multi_select",
+      "prompt": "Which restrictions on Athenian women does the lecture name?",
+      "options": [
+        {
+          "id": "21be54d6",
+          "text": "No part in running the state",
+          "isCorrect": true
+        },
+        {
+          "id": "643dd675",
+          "text": "No voice of their own in court",
+          "isCorrect": true
+        },
+        {
+          "id": "ea387ed4",
+          "text": "No role in religious festivals",
+          "isCorrect": false
+        },
+        {
+          "id": "c3616b2c",
+          "text": "No sizable wealth in their own name",
+          "isCorrect": true
+        },
+        {
+          "id": "5ab8538b",
+          "text": "No leaving the house without an escort",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Women had no political or legal identity. They could not take part in running the state, hold sizable wealth in their own name, or represent themselves in court. It is one of the regime's three contradictions, with slavery and the empire. Neither pillar of the democracy, participation or equality before the law, reached them. Garland adds that this was typical of ancient societies.",
+      "isIntroductory": false,
+      "linkedAtoms": [
+        {
+          "atomId": "f11da4c5-e6a4-4d2c-a2cd-df5cc95f7ac5",
+          "weight": 0.3
+        }
+      ],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "f0051f1f-a8ac-46c9-8a85-a581a98ec29e",
+      "status": "draft",
+      "mainAtomId": "e9373845-8911-4ea7-80d4-82658d849fc2",
+      "format": "multi_select",
+      "prompt": "How does Garland describe Athens's treatment of the Greeks in its empire?",
+      "options": [
+        {
+          "id": "26c59d85",
+          "text": "It collected taxes from them",
+          "isCorrect": true
+        },
+        {
+          "id": "37215d8a",
+          "text": "It offered them citizenship",
+          "isCorrect": false
+        },
+        {
+          "id": "446f7a0d",
+          "text": "It massacred those who disobeyed",
+          "isCorrect": true
+        },
+        {
+          "id": "185d67a1",
+          "text": "It ruled them through local kings",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The third contradiction, after slavery and the exclusion of women, is that a democracy subjugated its fellow Greeks, and held them by massacre as well as by taxation. Some of the evidence is carved in stone: the tribute lists record how much money Athens received from each ally, year by year.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "aba71f18-6f6d-45aa-9f6f-914a1d632327",
+      "status": "draft",
+      "mainAtomId": "e9373845-8911-4ea7-80d4-82658d849fc2",
+      "format": "true_false",
+      "prompt": "Garland says that, as far as we know, no free person in the ancient world thought slavery was wrong.",
+      "options": [
+        {
+          "id": "true",
+          "text": "True",
+          "isCorrect": true
+        },
+        {
+          "id": "false",
+          "text": "False",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Athens was a slave society, gave women no political or legal identity, and held an empire by massacre: three contradictions in a regime that promoted freedom and equality. Garland calls them anomalies \"from our perspective\", and notes that most ancient societies were slave societies.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "61b8dcb5-71a4-4df3-ad73-ca88a6a07933",
+      "status": "draft",
+      "mainAtomId": "e9373845-8911-4ea7-80d4-82658d849fc2",
+      "format": "true_false",
+      "prompt": "Garland calls slavery, the exclusion of women and the empire \"anomalies\" because the Athenians themselves saw them as betrayals of democracy.",
+      "options": [
+        {
+          "id": "true",
+          "text": "True",
+          "isCorrect": false
+        },
+        {
+          "id": "false",
+          "text": "False",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "They are anomalies from our perspective, and Garland warns against judging an ancient society by the standards of our own. The three contradictions are a slave society, women with no political or legal identity, and an empire held by massacre. He points out that slavery and the exclusion of women were normal across the ancient world.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "7ddb0ac2-65aa-41f5-9d4e-af9e35421f26",
+      "status": "draft",
+      "mainAtomId": "7d3c6d6a-ad72-4001-a9bc-65fae9735e0a",
+      "format": "true_false",
+      "prompt": "Athenian democracy was born in a revolution, when the poor rose up and took power from the aristocrats.",
+      "options": [
+        {
+          "id": "true",
+          "text": "True",
+          "isCorrect": false
+        },
+        {
+          "id": "false",
+          "text": "False",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "There was no democratic revolution. The democracy evolved over nearly 300 years, largely without violence and with no ideology behind it, and aristocrats did most to build it, courting the masses to further their own interests. Garland contrasts this with the French and Russian revolutions.",
+      "isIntroductory": true,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "2247958c-5abb-4884-8d01-343610eebd32",
+      "status": "draft",
+      "mainAtomId": "7d3c6d6a-ad72-4001-a9bc-65fae9735e0a",
+      "format": "multiple_choice",
+      "prompt": "Garland says the Athenian experiment was \"not ideologically driven\". What does he say did most to move it forward?",
+      "options": [
+        {
+          "id": "80352dfe",
+          "text": "Poor citizens rising up against the rich",
+          "isCorrect": false
+        },
+        {
+          "id": "af129e0d",
+          "text": "Thinkers making the case for equal rights",
+          "isCorrect": false
+        },
+        {
+          "id": "feb6be55",
+          "text": "Aristocrats seeking popular support",
+          "isCorrect": true
+        },
+        {
+          "id": "b6584d72",
+          "text": "Allied cities pressing Athens to reform",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Aristocrats played the main part, co-opting the masses largely to further their own interests. That is how the democracy could grow for nearly 300 years with no revolution and no ideology. Garland says nobody got on a bandwagon to promote democracy over other forms of government.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "8e6a235f-7f0b-4c41-9021-191c83789de8",
+      "status": "draft",
+      "mainAtomId": "7d3c6d6a-ad72-4001-a9bc-65fae9735e0a",
+      "format": "multiple_choice",
+      "prompt": "According to the lecture, who mostly dominated Athenian politics until around 430 BC?",
+      "options": [
+        {
+          "id": "024a9dee",
+          "text": "Ordinary citizens picked out by the lot",
+          "isCorrect": false
+        },
+        {
+          "id": "27181f8e",
+          "text": "Talented men from aristocratic families",
+          "isCorrect": true
+        },
+        {
+          "id": "c16936b9",
+          "text": "Career politicians backed by parties",
+          "isCorrect": false
+        },
+        {
+          "id": "25b4a14c",
+          "text": "Veteran soldiers elected by the army",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Athenian democracy was not built against the aristocracy. Aristocrats advanced it, partly to serve themselves, over nearly 300 years of gradual change with no revolution and no ideology. So even with offices filled by lot, Garland says, the people who dominated Athens were mostly talented and, until around 430 BC, aristocratic.",
+      "isIntroductory": false,
+      "linkedAtoms": [
+        {
+          "atomId": "59044ce1-5ef7-44c7-a78b-ad3372390c0b",
+          "weight": 0.3
+        }
+      ],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "2bc0e091-0320-4547-af45-6425fda3bde4",
+      "status": "draft",
+      "mainAtomId": "7d3c6d6a-ad72-4001-a9bc-65fae9735e0a",
+      "format": "multi_select",
+      "prompt": "Which statements about how the democracy developed match the lecture?",
+      "options": [
+        {
+          "id": "66ce096b",
+          "text": "It took nearly 300 years",
+          "isCorrect": true
+        },
+        {
+          "id": "b67e0812",
+          "text": "It was won in a civil war",
+          "isCorrect": false
+        },
+        {
+          "id": "68a71404",
+          "text": "It followed a plan laid down by Solon",
+          "isCorrect": false
+        },
+        {
+          "id": "ca5ec2c1",
+          "text": "It was still changing when it ended",
+          "isCorrect": true
+        },
+        {
+          "id": "935ddf86",
+          "text": "It was complete by Pericles' time",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The democracy evolved from the start of the 6th century BC to the late 4th, largely without violence, and was still evolving when it was snuffed out. Nobody designed it. It had no revolution and no ideology, and aristocrats pushed it along for their own reasons. The course follows the story from 594 to 322 BC.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "f46580a3-06f2-4808-b5ad-3a82ac5814d9",
+      "status": "draft",
+      "mainAtomId": "7d3c6d6a-ad72-4001-a9bc-65fae9735e0a",
+      "format": "multi_select",
+      "prompt": "The lecture says the democracy was not driven by ideology. Which of these facts from the lecture fits that claim?",
+      "options": [
+        {
+          "id": "82c730bb",
+          "text": "Solon set out his aims in a detailed manifesto",
+          "isCorrect": false
+        },
+        {
+          "id": "94fc170d",
+          "text": "No ancient democrat left a theory of its aims",
+          "isCorrect": true
+        },
+        {
+          "id": "f3d56c86",
+          "text": "The democracy set out to redistribute wealth",
+          "isCorrect": false
+        },
+        {
+          "id": "b4c86529",
+          "text": "Pericles founded a party to promote democracy",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Athenian democracy grew over nearly 300 years with no revolution and no ideology; aristocrats advanced it partly for their own ends. Fittingly, no ancient theorist explains what it was for. Garland says Athens produced no Rousseau and no John Stuart Mill, and even the word dēmokratia is not recorded until 431 BC. Solon did write about his aims, but vaguely, and in poetry.",
+      "isIntroductory": false,
+      "linkedAtoms": [
+        {
+          "atomId": "b24246a5-6976-4d1b-b126-0fd43c1b9854",
+          "weight": 0.3
+        }
+      ],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "04e03460-c971-4770-bae3-e1b739ea1be8",
+      "status": "draft",
+      "mainAtomId": "7d3c6d6a-ad72-4001-a9bc-65fae9735e0a",
+      "format": "true_false",
+      "prompt": "Garland describes Athenian democracy as neither anti-wealth nor anti-aristocracy.",
+      "options": [
+        {
+          "id": "true",
+          "text": "True",
+          "isCorrect": true
+        },
+        {
+          "id": "false",
+          "text": "False",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "That fits how it came about: over nearly 300 years, with no revolution and no ideology, and with aristocrats doing much of the building to further their own interests. Garland adds that the Athenians did not believe in redistributing wealth, and that the democracy kept the aristocratic love of competition and turned it to the service of the state.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "330404cb-1dc8-4026-beb7-88d5a45f771c",
+      "status": "draft",
+      "mainAtomId": "9534eec6-7ec3-4ed6-90bf-a18e52b72718",
+      "format": "multiple_choice",
+      "prompt": "A speaker persuades the Assembly to back his plan, and the plan ends in disaster. According to Garland, what happened to the speaker?",
+      "options": [
+        {
+          "id": "5e74e728",
+          "text": "He was fined a share of the losses",
+          "isCorrect": false
+        },
+        {
+          "id": "a6c1d20c",
+          "text": "He was barred from speaking again",
+          "isCorrect": false
+        },
+        {
+          "id": "9cf90ebb",
+          "text": "He was sent into exile for ten years",
+          "isCorrect": false
+        },
+        {
+          "id": "3f67493c",
+          "text": "Nothing: the Assembly had backed it",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "There was no accountability in the Assembly. Once the Assembly had voted for a proposal, the Assembly took the responsibility, and the man who proposed it faced no charge however badly it turned out. The one exception Garland mentions is a proposal to alter the constitution.",
+      "isIntroductory": true,
+      "linkedAtoms": [],
+      "imagePath": "/question-images/pnyx.jpg",
+      "imageCredit": "The speaker's platform on the Pnyx, Athens. philip.mallis, CC BY-SA 2.0, via Wikimedia Commons.",
+      "imageKind": "sourced",
+      "flagNote": null
+    },
+    {
+      "id": "c9b4a2e8-1199-4a85-8705-70fcb6aaa87a",
+      "status": "draft",
+      "mainAtomId": "9534eec6-7ec3-4ed6-90bf-a18e52b72718",
+      "format": "multiple_choice",
+      "prompt": "Which example does Garland give of a false claim a speaker could make in the Assembly and get away with?",
+      "options": [
+        {
+          "id": "3c44f2b7",
+          "text": "That Sparta was too weak to fight",
+          "isCorrect": false
+        },
+        {
+          "id": "55568a28",
+          "text": "That Sicily would be easy to conquer",
+          "isCorrect": true
+        },
+        {
+          "id": "badfb3e2",
+          "text": "That the silver mines were running dry",
+          "isCorrect": false
+        },
+        {
+          "id": "260ed59c",
+          "text": "That Persia had agreed to a peace",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A speaker could say that Sicily would be easy to conquer when it was not, and if the Assembly believed him he paid no price. The vote, not the speaker, carried the responsibility, so the proposer of a disastrous policy faced no charge. Garland lists this among the contrasts with modern democracy, next to the absence of professional politicians.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "1080cc4b-6664-42cb-97e2-063200924f93",
+      "status": "draft",
+      "mainAtomId": "9534eec6-7ec3-4ed6-90bf-a18e52b72718",
+      "format": "multi_select",
+      "prompt": "Why, in Garland's account, did the proposer of a failed policy face no charge?",
+      "options": [
+        {
+          "id": "f49fb5ca",
+          "text": "Speakers were protected by an oath to the gods",
+          "isCorrect": false
+        },
+        {
+          "id": "5a58b7b4",
+          "text": "The Assembly's vote made the decision its own",
+          "isCorrect": true
+        },
+        {
+          "id": "84dd3979",
+          "text": "Proposals were put forward without a name",
+          "isCorrect": false
+        },
+        {
+          "id": "00a54e36",
+          "text": "The council had already approved the plan",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Responsibility lay with the vote, not the speaker. Once the Assembly had voted for a proposal, the Assembly answered for it, so there was no accountability for the man who proposed it. This is direct participation seen from the other side: the citizens who decided were the ones responsible. The result, Garland says, was that a speaker could make all sorts of false statements from the platform.",
+      "isIntroductory": false,
+      "linkedAtoms": [
+        {
+          "atomId": "f11da4c5-e6a4-4d2c-a2cd-df5cc95f7ac5",
+          "weight": 0.3
+        }
+      ],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "48132055-ab3e-40af-bca1-ffd18f47a38a",
+      "status": "draft",
+      "mainAtomId": "9534eec6-7ec3-4ed6-90bf-a18e52b72718",
+      "format": "multi_select",
+      "prompt": "Garland sets the lack of accountability beside other things the Assembly did without. Which of these does he say Athens lacked?",
+      "options": [
+        {
+          "id": "e650c6f8",
+          "text": "A party system",
+          "isCorrect": true
+        },
+        {
+          "id": "c3298ecb",
+          "text": "Rival speakers competing for support",
+          "isCorrect": false
+        },
+        {
+          "id": "c868e4c1",
+          "text": "Professional politicians",
+          "isCorrect": true
+        },
+        {
+          "id": "88a43e8c",
+          "text": "A government and an opposition",
+          "isCorrect": true
+        },
+        {
+          "id": "a088661f",
+          "text": "A vote open to the whole citizen body",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "With no parties, no government and opposition, and no professional politicians, each vote in the Assembly was in effect a referendum, decided directly by the citizens present. Speakers did compete with one another, but they were simply men whose influence lasted for a time. In that setting the responsibility sat with the vote itself: whoever proposed a policy that failed faced no charge, because the Assembly had chosen it.",
+      "isIntroductory": false,
+      "linkedAtoms": [
+        {
+          "atomId": "f11da4c5-e6a4-4d2c-a2cd-df5cc95f7ac5",
+          "weight": 0.3
+        }
+      ],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "0231aac8-9d56-41d0-9c72-d639134734e6",
+      "status": "draft",
+      "mainAtomId": "9534eec6-7ec3-4ed6-90bf-a18e52b72718",
+      "format": "true_false",
+      "prompt": "Proposing to alter the constitution was the one kind of proposal for which, Garland says, a speaker in the Assembly could be charged.",
+      "options": [
+        {
+          "id": "true",
+          "text": "True",
+          "isCorrect": true
+        },
+        {
+          "id": "false",
+          "text": "False",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Otherwise there was no accountability in the Assembly. A proposal could turn out to be the worst possible advice and its author would not be charged, because the Assembly had voted for it and the Assembly took the responsibility. These speakers held no post to lose: Garland says there were no professional politicians, just men who got up to speak.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "8ede3f9d-6c44-46ac-8079-8930e8484f3b",
+      "status": "draft",
+      "mainAtomId": "9534eec6-7ec3-4ed6-90bf-a18e52b72718",
+      "format": "true_false",
+      "prompt": "On the lecture's evidence, an Athenian could be punished for a military failure, yet not for proposing the policy that failed.",
+      "options": [
+        {
+          "id": "true",
+          "text": "True",
+          "isCorrect": true
+        },
+        {
+          "id": "false",
+          "text": "False",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Garland mentions that Thucydides was banished in 424 BC, held responsible for a military disaster. In the Assembly it was different. There was no accountability, and the proposer of a disastrous policy faced no charge, because the vote, not the speaker, bore the responsibility. Garland does not draw this comparison himself, but both facts are in the lecture.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "cbadb1bc-a81a-4417-9a32-0a0cac7a08aa",
+      "status": "draft",
+      "mainAtomId": "b24246a5-6976-4d1b-b126-0fd43c1b9854",
+      "format": "multiple_choice",
+      "prompt": "According to Garland, where is the word dēmokratia first recorded?",
+      "options": [
+        {
+          "id": "eaacc99a",
+          "text": "In Solon's poems about his reforms",
+          "isCorrect": false
+        },
+        {
+          "id": "3e97a446",
+          "text": "In the earliest comedy by Aristophanes",
+          "isCorrect": false
+        },
+        {
+          "id": "e0758514",
+          "text": "In a decree carved on the Acropolis",
+          "isCorrect": false
+        },
+        {
+          "id": "f8125bd3",
+          "text": "In Pericles' speech over the war dead",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "Dēmokratia, literally \"people power\", is first recorded in the funeral speech Pericles gave in 431 BC, as Thucydides preserves it. The word arrived late. By then Athens had been a radical democracy for more than 30 years, and a democracy of sorts for well over a century.",
+      "isIntroductory": true,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "01b0d680-f21f-4e58-8da9-9676f874d097",
+      "status": "draft",
+      "mainAtomId": "b24246a5-6976-4d1b-b126-0fd43c1b9854",
+      "format": "multiple_choice",
+      "prompt": "In the speech where dēmokratia is first recorded, how does Pericles explain the name?",
+      "options": [
+        {
+          "id": "e5d4c930",
+          "text": "Power rests with the many, not the few",
+          "isCorrect": true
+        },
+        {
+          "id": "f659feb0",
+          "text": "Offices are filled by lot, not by vote",
+          "isCorrect": false
+        },
+        {
+          "id": "50cb2635",
+          "text": "The laws are the same for rich and poor",
+          "isCorrect": false
+        },
+        {
+          "id": "eab87032",
+          "text": "Citizens may say whatever they think",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Pericles says the constitution is called a dēmokratia because it is run by the many and not the few. This speech of 431 BC is the first recorded use of the word, which means \"people power\", although Athens had been a democracy of sorts for well over a century by then. Two of the wrong answers describe older names for the regime: isonomia (equal laws) and parrhesia (saying everything).",
+      "isIntroductory": false,
+      "linkedAtoms": [
+        {
+          "atomId": "b96fd3e3-b63a-43d0-b85c-4c47f7a8f9a5",
+          "weight": 0.3
+        }
+      ],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "4aeeaceb-84a7-4fad-8124-1dcd2b0fc2ae",
+      "status": "draft",
+      "mainAtomId": "b24246a5-6976-4d1b-b126-0fd43c1b9854",
+      "format": "multi_select",
+      "prompt": "What can the demos in dēmokratia mean, according to Garland?",
+      "options": [
+        {
+          "id": "60cb819c",
+          "text": "The people as a whole",
+          "isCorrect": true
+        },
+        {
+          "id": "f4263ba0",
+          "text": "The men who owned land",
+          "isCorrect": false
+        },
+        {
+          "id": "6dc23f32",
+          "text": "The poor majority",
+          "isCorrect": true
+        },
+        {
+          "id": "eb4a26e2",
+          "text": "The elected leaders",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Dēmokratia means \"people power\", but demos can be the people as a whole or the majority, which in effect means the masses, the poor. That is why Garland calls the Greek word as far from straightforward as our word democracy. It is first recorded in 431 BC, in Pericles' funeral speech, well over a century after the system it names had begun.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "2a039822-0995-4f94-be82-27b87946b2f3",
+      "status": "draft",
+      "mainAtomId": "b24246a5-6976-4d1b-b126-0fd43c1b9854",
+      "format": "multi_select",
+      "prompt": "The word dēmokratia is first recorded in 431 BC. According to the lecture, which of these were already true by then?",
+      "options": [
+        {
+          "id": "fc56e098",
+          "text": "Athens had been a radical democracy for 30 years",
+          "isCorrect": true
+        },
+        {
+          "id": "f50a0d60",
+          "text": "Athens had lost the Peloponnesian War",
+          "isCorrect": false
+        },
+        {
+          "id": "a558d60a",
+          "text": "A democracy of sorts was over a century old",
+          "isCorrect": true
+        },
+        {
+          "id": "ab253910",
+          "text": "The word isonomia was already in use",
+          "isCorrect": true
+        },
+        {
+          "id": "e5f81525",
+          "text": "A pupil of Aristotle had described the constitution",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The word, meaning \"people power\", came late. When Pericles used it in 431 BC, Athens had been a radical democracy for more than 30 years and a democracy of sorts for well over a century, built up gradually, and older names such as isonomia were already current. The war with Sparta was not lost until 404 BC, and the Constitution of the Athenians dates from the 320s.",
+      "isIntroductory": false,
+      "linkedAtoms": [
+        {
+          "atomId": "b96fd3e3-b63a-43d0-b85c-4c47f7a8f9a5",
+          "weight": 0.3
+        },
+        {
+          "atomId": "7d3c6d6a-ad72-4001-a9bc-65fae9735e0a",
+          "weight": 0.3
+        }
+      ],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "954898da-4aed-4927-bc64-3e7dedfbaf63",
+      "status": "draft",
+      "mainAtomId": "b24246a5-6976-4d1b-b126-0fd43c1b9854",
+      "format": "true_false",
+      "prompt": "According to the lecture, the earliest recorded use of dēmokratia comes from an opponent of the regime, who used it as an insult.",
+      "options": [
+        {
+          "id": "true",
+          "text": "True",
+          "isCorrect": false
+        },
+        {
+          "id": "false",
+          "text": "False",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "The first recorded use is in Pericles' funeral speech of 431 BC, where he uses it to describe Athens's own constitution; it means \"people power\". The word was a late arrival, well over a century after a democracy of sorts began. The insult was a different word, ochlokratia: rule by the rabble.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    },
+    {
+      "id": "f6eaca13-72dc-4387-a7f8-bdf0ad20fa4e",
+      "status": "draft",
+      "mainAtomId": "b24246a5-6976-4d1b-b126-0fd43c1b9854",
+      "format": "true_false",
+      "prompt": "According to Garland, the English word \"democracy\" first appears in 1784, and was used as an insult.",
+      "options": [
+        {
+          "id": "true",
+          "text": "True",
+          "isCorrect": true
+        },
+        {
+          "id": "false",
+          "text": "False",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Garland uses this to show that the word has never been straightforward. Its Greek ancestor dēmokratia, \"people power\", was a late arrival too. Its first recorded use is Pericles' funeral speech in 431 BC, well over a century after a democracy of sorts began in Athens.",
+      "isIntroductory": false,
+      "linkedAtoms": [],
+      "imagePath": null,
+      "imageCredit": null,
+      "imageKind": null,
+      "flagNote": null
+    }
+  ]
+}
