@@ -1,5 +1,6 @@
 import { and, eq, exists, lte, min, or, sql } from "drizzle-orm";
 import { database } from "@/server/db/client";
+import type { DatabaseOrTransaction } from "@/server/db/transactionType";
 import { atom, atomProgress, lectureProgress, question } from "@/server/db/schema";
 
 // THE definition of "this atom can be reviewed" and "this atom is due".
@@ -27,9 +28,10 @@ function reviewableAtomCondition(userId: string) {
 
 // Atoms the next session would hold: due today or earlier, or waiting for a
 // retry after a miss. `today` is a learner date such as "2026-11-16".
-export async function findDueAtoms(userId: string, today: string) {
+// Pass a transaction as `reader` to count rows it has changed but not committed.
+export async function findDueAtoms(userId: string, today: string, reader: DatabaseOrTransaction = database) {
   const dueOrRetryPending = or(lte(atomProgress.dueOn, today), eq(atomProgress.retryPending, true));
-  return database
+  return reader
     .select({ atomId: atomProgress.atomId, dueOn: atomProgress.dueOn, retryPending: atomProgress.retryPending })
     .from(atomProgress)
     .where(and(reviewableAtomCondition(userId), dueOrRetryPending));

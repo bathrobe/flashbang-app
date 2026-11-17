@@ -30,3 +30,11 @@ export function getLearnerLevel(totalXp: number): number {
 export function getNextLearnerLevelXpThreshold(totalXp: number): number {
   return getLearnerLevel(totalXp) * settings.levels.learnerXpPerLevel;
 }
+
+// The trial door opens when every active atom of the lecture is at the door
+// level (Level 3). `atomXpValues` holds one XP total per active atom; an atom
+// the learner has no progress on counts as 0. No atoms means no door.
+export function isTrialDoorEarned(atomXpValues: number[]): boolean {
+  if (atomXpValues.length === 0) return false;
+  return atomXpValues.every((xp) => getLevelFromXp(xp) >= settings.levels.trialDoorLevel);
+}

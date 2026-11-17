@@ -1,4 +1,5 @@
 import { and, eq, inArray, max } from "drizzle-orm";
+import { getCardKind } from "@/game/cardKind";
 import { pickQuestion } from "@/game/pickQuestion";
 import { database } from "@/server/db/client";
 import { atom, atomProgress, question, reviewEvent } from "@/server/db/schema";
@@ -14,10 +15,9 @@ export async function loadCardForLearner(userId: string, atomId: string, today: 
     .innerJoin(atom, eq(atom.id, atomProgress.atomId))
     .where(and(eq(atomProgress.userId, userId), eq(atomProgress.atomId, atomId), eq(atom.status, "active")));
 
-  // The server decides the kind (submitAnswer repeats this check). Dates are
-  // "YYYY-MM-DD" strings, so comparing them as text compares them as dates.
+  // The server decides the kind; submitAnswer repeats this exact check.
   if (!progress) return { kind: "not_due" };
-  const kind = progress.dueOn <= today ? "first" : progress.retryPending ? "retry" : null;
+  const kind = getCardKind(progress, today);
   if (!kind) return { kind: "not_due" };
 
   const activeQuestions = await database

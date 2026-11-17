@@ -1,46 +1,36 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { getButtonLook } from "@/components/ui/buttonLook";
 import { Panel } from "@/components/ui/Panel";
-import { ReviewCard, type CardAnswer } from "./ReviewCard";
+import { getQueueAfterAnswer } from "@/game/sessionQueue";
+import { CardShowing } from "./CardShowing";
 import { useFrontCard } from "./useFrontCard";
 
 // One review session: the queue of atom ids lives here, in browser memory only.
 // Closing the tab loses nothing, because the page rebuilds the queue from the
 // database. Later changes to the `atomIds` prop are ignored on purpose.
 export function ReviewSession({ atomIds }: { atomIds: string[] }) {
+  const router = useRouter();
   const [queue, setQueue] = useState(atomIds);
   const [showingNumber, setShowingNumber] = useState(0);
 
-  function skipFrontAtom() {
-    setQueue((currentQueue) => currentQueue.slice(1));
+  // Move past the front atom. A missed one goes back in three places later,
+  // so the session can't end while a retry is outstanding.
+  function moveOn(frontAtomNeedsRetry: boolean) {
+    setQueue((currentQueue) => getQueueAfterAnswer(currentQueue, frontAtomNeedsRetry));
     setShowingNumber((number) => number + 1);
   }
 
-  const frontCard = useFrontCard(queue[0], showingNumber, skipFrontAtom);
+  const frontCard = useFrontCard(queue[0], showingNumber, () => moveOn(false));
 
-  // HAND-OFF (checklist item 11): send the answer with submitAnswer({ attemptId,
-  // questionId, ...answer }), lock the card, show feedback, and on Continue move
-  // on: re-insert a missed atom three places later, then go to /review/done when
-  // the queue is empty. For now Confirm does nothing.
-  function handleConfirm(answer: CardAnswer) {
-    void answer;
-  }
+  const isFinished = queue.length === 0;
+  useEffect(() => {
+    if (isFinished) router.replace("/review/done");
+  }, [isFinished, router]);
 
-  if (queue.length === 0) {
-    // Only reached for now when every remaining atom was skipped; item 11 goes to /review/done instead.
-    return (
-      <Panel>
-        <p className="font-display text-xl">Nothing left to review.</p>
-        <Link href="/courses" className={getButtonLook("plain", "mt-4")}>
-          Back to courses
-        </Link>
-      </Panel>
-    );
-  }
+  if (isFinished) return <p aria-live="polite">Session complete.</p>;
 
   return (
     <div className="flex flex-col gap-4">
@@ -58,7 +48,7 @@ export function ReviewSession({ atomIds }: { atomIds: string[] }) {
       )}
 
       {frontCard.status === "showing" && (
-        <ReviewCard key={frontCard.attemptId} card={frontCard.card} onConfirm={handleConfirm} isLocked={false} />
+        <CardShowing key={frontCard.attemptId} card={frontCard.card} attemptId={frontCard.attemptId} onDone={moveOn} />
       )}
     </div>
   );
