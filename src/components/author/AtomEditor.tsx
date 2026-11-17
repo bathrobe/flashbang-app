@@ -16,7 +16,8 @@ type AtomEditorProps = {
 // questions beneath.
 export function AtomEditor({ atom, questions, lectureAtomChoices, allAtomChoices }: AtomEditorProps) {
   return (
-    <section className="flex flex-col gap-3">
+    // A retired atom is greyed: it is out of every learner's sessions, but its XP stays.
+    <section className={`flex flex-col gap-3 ${atom.status === "retired" ? "opacity-60" : ""}`}>
       <Panel className="flex flex-col gap-3">
         <h2 className="font-display text-xl">
           Atom {atom.position}

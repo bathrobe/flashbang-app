@@ -2,14 +2,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AtomEditor } from "@/components/author/AtomEditor";
 import { FlaggedList } from "@/components/author/FlaggedList";
+import { PublishBar } from "@/components/author/PublishBar";
 import { requireAdmin } from "@/server/access";
 import { getAuthorLecture } from "@/server/queries/getAuthorLecture";
+import { getLearnerToday } from "@/server/queries/learnerToday";
 
 // One lecture's editor: the Publish bar, flagged questions, then each atom
 // with its questions beneath.
 export default async function AuthorLecturePage({ params }: PageProps<"/author/[lectureNumber]">) {
   // getAuthorLecture includes correct answers, so the admin check comes first.
-  await requireAdmin({ calledFrom: "page" });
+  const admin = await requireAdmin({ calledFrom: "page" });
   const { lectureNumber } = await params;
   const number = Number(lectureNumber);
   if (!Number.isInteger(number)) notFound();
@@ -17,6 +19,8 @@ export default async function AuthorLecturePage({ params }: PageProps<"/author/[
   if (!authorLecture) notFound();
 
   const { lecture, atoms, questions, atomChoices } = authorLecture;
+  // The publishing day as a date in the admin's own time zone, for "Published <date>".
+  const publishedOn = lecture.publishedAt ? await getLearnerToday(admin.id, lecture.publishedAt) : null;
   const lectureAtomChoices = atomChoices.filter((choice) => choice.lectureNumber === lecture.number);
 
   return (
@@ -29,7 +33,12 @@ export default async function AuthorLecturePage({ params }: PageProps<"/author/[
         <p className="text-ink-muted">Status: {lecture.status}</p>
       </div>
 
-      {/* PUBLISH BAR SLOT: PublishBar.tsx goes here (checklist item 18). */}
+      <PublishBar
+        lectureId={lecture.id}
+        lectureStatus={lecture.status}
+        draftQuestionCount={lecture.draftQuestionCount}
+        publishedOn={publishedOn}
+      />
 
       <FlaggedList questions={questions.filter((question) => question.status === "flagged")} />
 

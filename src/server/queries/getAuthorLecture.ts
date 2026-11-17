@@ -18,7 +18,15 @@ export async function getAuthorLecture(lectureNumber: number) {
   const deleteBlockers = await findAtomDeleteBlockers(atoms.map((atomRow) => atomRow.id));
 
   return {
-    lecture: { id: lectureRow.id, number: lectureRow.number, title: lectureRow.title, status: lectureRow.status },
+    lecture: {
+      id: lectureRow.id,
+      number: lectureRow.number,
+      title: lectureRow.title,
+      status: lectureRow.status,
+      publishedAt: lectureRow.publishedAt,
+      // What "Publish drafts (N)" would activate: every draft question in the lecture.
+      draftQuestionCount: questions.filter((questionRow) => questionRow.status === "draft").length,
+    },
     atoms: atoms.map((atomRow) => ({
       id: atomRow.id,
       position: atomRow.position,
