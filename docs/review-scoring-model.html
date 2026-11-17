@@ -1,0 +1,186 @@
+<title>Review Scoring Model</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap">
+<style>
+/* Layout: one narrow reading column; the diagram is the widest thing and scrolls in its own box. */
+:root {
+  --paper: #f3f6f8;
+  --surface: #ffffff;
+  --ink: #16242e;
+  --muted: #52646f;
+  --line: #c3d0d8;
+  --xp: #0b7a6e;
+  --schedule: #2f5fb3;
+  --clout: #a35a00;
+  --display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #10181d; --surface: #18232a; --ink: #e6eef2; --muted: #9db0ba;
+    --line: #35464f; --xp: #4fd1bf; --schedule: #86aef5; --clout: #f0b057;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #10181d; --surface: #18232a; --ink: #e6eef2; --muted: #9db0ba;
+  --line: #35464f; --xp: #4fd1bf; --schedule: #86aef5; --clout: #f0b057;
+  color-scheme: dark;
+}
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--body); font-size: 16px; line-height: 1.55;
+  padding-block: 32px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+main { max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px; }
+header, section { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+h1, h2 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.2; }
+h1 { font-size: 1.9rem; }
+h2 { font-size: 1.25rem; }
+p { margin: 0; max-width: 68ch; }
+.lede { color: var(--muted); }
+.scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+figure { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+figcaption { color: var(--muted); font-size: 0.9rem; max-width: 68ch; }
+svg { display: block; min-width: 760px; width: 100%; height: auto; color: var(--ink); }
+svg .box { fill: var(--surface); stroke: var(--line); stroke-width: 1.5; }
+svg .flow { fill: none; stroke: currentColor; stroke-width: 1.5; }
+svg .name { font: 600 14px var(--display); fill: currentColor; }
+svg .note { font: 400 12px var(--body); fill: var(--muted); }
+svg .edge { font: 500 11.5px var(--body); fill: var(--muted); }
+svg .xp { stroke: var(--xp); } svg .schedule { stroke: var(--schedule); } svg .clout { stroke: var(--clout); }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { font-family: var(--display); font-weight: 600; font-size: 0.85rem; }
+tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 600; white-space: nowrap; }
+.wide table { min-width: 720px; }
+.tag { font-weight: 600; }
+.tag.xp { color: var(--xp); } .tag.schedule { color: var(--schedule); } .tag.clout { color: var(--clout); }
+ul { margin: 0; padding-left: 1.2em; max-width: 68ch; display: flex; flex-direction: column; gap: 6px; }
+</style>
+
+<main>
+  <header>
+    <h1>Review Scoring Model</h1>
+    <p class="lede">What one answer changes, for the Stage 1 build. Three numbers are updated from the same answer and are otherwise independent. Exact amounts are placeholders to settle in the spec.</p>
+  </header>
+
+  <section>
+    <h2>One answer, three updates</h2>
+    <figure>
+      <div class="scroll">
+        <svg viewBox="0 0 1010 420" role="img" aria-label="One answer updates atom XP, the main atom's interval and due date, and clout. XP feeds atom level, which feeds the trial door. The due date feeds the inbox count, which decides when the atom is shown again.">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="context-stroke"/>
+            </marker>
+          </defs>
+
+          <rect class="box" x="20" y="150" width="180" height="120" rx="4"/>
+          <text class="name" x="36" y="178">One answer</text>
+          <text class="note" x="36" y="202">correct or wrong</text>
+          <text class="note" x="36" y="222">confidence (4 steps)</text>
+          <text class="note" x="36" y="242">first attempt or retry</text>
+
+          <polyline class="flow xp" points="200,186 250,186 250,62 300,62" marker-end="url(#arrow)"/>
+          <text class="edge" x="242" y="124" text-anchor="end">correct only</text>
+          <line class="flow schedule" x1="200" y1="210" x2="300" y2="210" marker-end="url(#arrow)"/>
+          <text class="edge" x="250" y="203" text-anchor="middle">first attempt</text>
+          <polyline class="flow clout" points="200,234 250,234 250,358 300,358" marker-end="url(#arrow)"/>
+          <text class="edge" x="242" y="302" text-anchor="end">by confidence</text>
+
+          <rect class="box xp" x="300" y="20" width="200" height="84" rx="4"/>
+          <text class="name" x="316" y="48">Atom XP</text>
+          <text class="note" x="316" y="70">main atom: full amount</text>
+          <text class="note" x="316" y="88">linked atoms: a share</text>
+
+          <rect class="box schedule" x="300" y="168" width="200" height="84" rx="4"/>
+          <text class="name" x="316" y="196">Interval and due date</text>
+          <text class="note" x="316" y="218">main atom only</text>
+          <text class="note" x="316" y="236">due date = today + interval</text>
+
+          <rect class="box clout" x="300" y="316" width="200" height="84" rx="4"/>
+          <text class="name" x="316" y="344">Clout</text>
+          <text class="note" x="316" y="366">one number per learner</text>
+          <text class="note" x="316" y="384">affects nothing else</text>
+
+          <line class="flow xp" x1="500" y1="62" x2="570" y2="62" marker-end="url(#arrow)"/>
+          <text class="edge" x="535" y="54" text-anchor="middle">thresholds</text>
+          <rect class="box xp" x="570" y="20" width="180" height="84" rx="4"/>
+          <text class="name" x="586" y="48">Atom level</text>
+          <text class="note" x="586" y="70">worked out from XP</text>
+          <text class="note" x="586" y="88">never falls</text>
+
+          <line class="flow xp" x1="750" y1="62" x2="820" y2="62" marker-end="url(#arrow)"/>
+          <text class="edge" x="785" y="54" text-anchor="middle">all atoms</text>
+          <rect class="box xp" x="820" y="20" width="170" height="84" rx="4"/>
+          <text class="name" x="836" y="48">Trial door</text>
+          <text class="note" x="836" y="70">opens when every atom</text>
+          <text class="note" x="836" y="88">in the lecture is level N</text>
+
+          <line class="flow schedule" x1="500" y1="210" x2="570" y2="210" marker-end="url(#arrow)"/>
+          <text class="edge" x="535" y="202" text-anchor="middle">due today</text>
+          <rect class="box schedule" x="570" y="168" width="180" height="84" rx="4"/>
+          <text class="name" x="586" y="196">Inbox count</text>
+          <text class="note" x="586" y="218">atoms due now</text>
+          <text class="note" x="586" y="236">no badge at zero</text>
+
+          <line class="flow schedule" x1="750" y1="210" x2="820" y2="210" marker-end="url(#arrow)"/>
+          <text class="edge" x="785" y="202" text-anchor="middle">picks</text>
+          <rect class="box schedule" x="820" y="168" width="170" height="84" rx="4"/>
+          <text class="name" x="836" y="196">Next question</text>
+          <text class="note" x="836" y="218">a question on a due atom</text>
+          <text class="note" x="836" y="236">not the one last seen</text>
+        </svg>
+      </div>
+      <figcaption>The only connection between XP and due dates: an atom is shown only when it is due, so its full XP can be earned once per interval. Level therefore counts, roughly, how many widening gaps you have remembered the atom across.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Stored values</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Name</th><th>Belongs to</th><th>What it is</th></tr></thead>
+        <tbody>
+          <tr><td>XP</td><td>Atom</td><td>Running total of credit earned on this atom. Only increases.</td></tr>
+          <tr><td>Level</td><td>Atom</td><td>Worked out from XP by fixed thresholds. Not stored separately. Never falls.</td></tr>
+          <tr><td>Interval</td><td>Atom</td><td>Days to wait before the next review. Grows after a correct answer, shrinks after a wrong one.</td></tr>
+          <tr><td>Due date</td><td>Atom</td><td>Date of last review plus the interval.</td></tr>
+          <tr><td>Clout</td><td>Learner</td><td>A number staked with the confidence slider. Never below zero. Nothing to spend it on yet.</td></tr>
+          <tr><td>Learner level</td><td>Learner</td><td>Worked out from the sum of all atom XP.</td></tr>
+          <tr><td>Main atom, linked atoms</td><td>Question</td><td>One main atom, plus zero or more linked atoms, each with a weight between 0 and 1.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="wide">
+    <h2>Rules by outcome</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Outcome</th><th><span class="tag xp">Main atom XP</span></th><th><span class="tag xp">Linked atom XP</span></th><th><span class="tag schedule">Main atom interval</span></th><th><span class="tag clout">Clout</span></th></tr></thead>
+        <tbody>
+          <tr><td>Correct, first attempt</td><td>Base amount, plus a bonus for higher confidence</td><td>Main atom's amount times the link weight (about a third by default)</td><td>Grows. Grows more at higher confidence.</td><td>Gain by stake. All in doubles it.</td></tr>
+          <tr><td>Wrong, first attempt</td><td>None</td><td>None</td><td>Shrinks to short. Shortest when confidence was high.</td><td>Loss by stake. All in sets it to zero.</td></tr>
+          <tr><td>Correct, on retry</td><td>Small fixed amount</td><td>None</td><td>No change</td><td>No change</td></tr>
+          <tr><td>Wrong, on retry</td><td>None</td><td>None</td><td>No change</td><td>No change</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede">A retry is a different question on the same main atom, shown later in the same session after a wrong first attempt. Linked atoms never have their interval changed in Stage 1.</p>
+  </section>
+
+  <section>
+    <h2>Borrowed from Math Academy, and what was left out</h2>
+    <ul>
+      <li><strong>Kept:</strong> one answer credits more than one topic, by a weight set when the content is written.</li>
+      <li><strong>Changed:</strong> their weights sit on links between topics in a hierarchy and travel many hops. Ours sit on the question and travel one hop, because humanities ideas have no fixed "simpler topic" order.</li>
+      <li><strong>Left out for now:</strong> linked credit moving due dates, penalties spreading to other topics, per-learner speed, and choosing the question that covers the most due atoms.</li>
+      <li><strong>Same as theirs:</strong> XP and the schedule are separate numbers.</li>
+    </ul>
+  </section>
+</main>

@@ -1,0 +1,28 @@
+# dependencies
+node_modules
+
+# next.js build output
+.next
+/out/
+/build
+
+# testing
+/coverage
+
+# env files: every .env file is ignored except the example (names only, no values)
+.env*
+.env*.local
+!.env.example
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+.pnpm-debug.log*
