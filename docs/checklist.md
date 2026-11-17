@@ -31,6 +31,10 @@ The build cannot do these itself. If one is not ready, record it in this list as
 | After item 3 | Add the production redirect address to the Google OAuth client; sign in once locally and once on the Vercel address |
 | Item 22 | Read and edit the 42 questions on `/author/1` in production, press "Publish lecture", do the first review |
 
+**Waiting as of 2026-11-16 (build run 1):**
+- **Neon terms not accepted.** Item 1 is done except the database: `vercel integration add neon` stops at "Terms have not been accepted." Joe accepts in the Vercel dashboard, then the command is re-run. Items 2, 3 and everything that reads the database wait on this.
+- **`.env.local` values lost.** The item 1 agent ran `vercel link`, which overwrote the file. `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `ALLOWED_EMAILS` and `ADMIN_EMAILS` must be pasted in again before item 3.
+
 ## Rules for the build agent
 
 - Read `docs/spec.md` in full before item 1. Where the spec gives a number or rule, the spec wins over the PRD.
