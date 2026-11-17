@@ -15,7 +15,7 @@ type FrontCard =
 
 type LoadedCard = { showingNumber: number } & ({ status: "failed" } | { status: "showing"; card: ShowableCard; attemptId: string });
 
-export function useFrontCard(frontAtomId: string | undefined, showingNumber: number, skipFrontAtom: () => void): FrontCard {
+export function useFrontCard(frontAtomId: string | undefined, showingNumber: number, skipFrontAtom: () => void) {
   const [loadedCard, setLoadedCard] = useState<LoadedCard | null>(null);
 
   useEffect(() => {
@@ -41,7 +41,13 @@ export function useFrontCard(frontAtomId: string | undefined, showingNumber: num
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [frontAtomId, showingNumber]);
 
+  // Shows a card the server already sent (after a flag) as a new showing of the
+  // same atom: a fresh attemptId, and no second load.
+  function replaceFrontCard(card: ShowableCard) {
+    setLoadedCard({ showingNumber, status: "showing", card, attemptId: crypto.randomUUID() });
+  }
+
   // A result from an earlier showing means this one is still loading.
-  if (!loadedCard || loadedCard.showingNumber !== showingNumber) return { status: "loading" };
-  return loadedCard;
+  const frontCard: FrontCard = !loadedCard || loadedCard.showingNumber !== showingNumber ? { status: "loading" } : loadedCard;
+  return { frontCard, replaceFrontCard };
 }

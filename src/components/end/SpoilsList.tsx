@@ -19,7 +19,12 @@ export function SpoilsList({ reviewedAtoms, linkedOnlyAtoms }: SpoilsListProps) 
   const [countingIndex, setCountingIndex] = useState(0);
   const rowCount = reviewedAtoms.length + linkedOnlyAtoms.length;
 
-  useEffect(() => setStepMs(readThemeDurationMs("--transition-duration-count")), []);
+  useEffect(() => {
+    // Deliberate: the value only exists in the browser, and setting it after
+    // mount keeps the server's HTML and the first browser render identical.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setStepMs(readThemeDurationMs("--transition-duration-count"));
+  }, []);
 
   const animate = stepMs !== null && stepMs > 0 && !prefersReducedMotion;
   const allDone = stepMs !== null && !animate;

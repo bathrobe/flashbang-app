@@ -5,52 +5,39 @@ import { useHud } from "@/components/hud/HudProvider";
 import { DoorUnveilingQueue } from "@/components/course/DoorUnveilingQueue";
 import { FeedbackPanel } from "@/components/feedback/FeedbackPanel";
 import { Button } from "@/components/ui/Button";
-import type { AnswerResult, OpenedDoor } from "@/server/answerTypes";
-import type { ShowableCard } from "@/server/cardTypes";
-import { submitAnswer } from "@/server/actions/submitAnswer";
+import type { OpenedDoor } from "@/server/answerTypes";
+import type { LoadCardResult, ShowableCard } from "@/server/cardTypes";
+import type { FlagQuestionResult } from "@/server/flagQuestion/flagQuestionForLearner";
 import { useReducedMotion } from "@/lib/useReducedMotion";
+import { FlagControl } from "./FlagControl";
 import { getGradedOptionLooks } from "./formats/getGradedOptionLooks";
-import { ReviewCard, type CardAnswer } from "./ReviewCard";
-
-type Submission =
-  | { status: "answering" }
-  | { status: "saving"; answer: CardAnswer }
-  | { status: "failed"; answer: CardAnswer }
-  | { status: "answered"; answer: CardAnswer; result: AnswerResult };
+import { ReviewCard } from "./ReviewCard";
+import { useAnswerSubmission } from "./useAnswerSubmission";
 
 type CardShowingProps = {
   card: ShowableCard;
   attemptId: string; // one per showing; the session gives this component the same value as its key
   onDone: (frontAtomNeedsRetry: boolean) => void;
+  onFlagged: (nextCard: LoadCardResult) => void; // the same atom's next card, or "no_questions"
 };
 
 // One showing of one card: answer, save, then the feedback panel and Continue.
-// The HUD (navbar clout, level, inbox badge) is updated from each result, no reload needed.
-export function CardShowing({ card, attemptId, onDone }: CardShowingProps) {
+// The flag control sits beside Confirm, then beside Continue.
+export function CardShowing({ card, attemptId, onDone, onFlagged }: CardShowingProps) {
   const { updateHud } = useHud();
   const prefersReducedMotion = useReducedMotion();
-  const [submission, setSubmission] = useState<Submission>({ status: "answering" });
+  const { submission, send } = useAnswerSubmission(attemptId, card.questionId, () => onDone(false));
   // Set by Continue on an answer that opened a trial door: the unveiling plays, then the session moves on.
   const [doorsToUnveil, setDoorsToUnveil] = useState<OpenedDoor[] | null>(null);
 
-  // No timeout of our own: a database waking up can take several seconds.
-  // A resend after a failure uses the SAME attemptId, so it can never count twice.
-  async function send(answer: CardAnswer) {
-    setSubmission({ status: "saving", answer });
-    try {
-      const result = await submitAnswer({ attemptId, questionId: card.questionId, ...answer });
-      // Already answered in another tab: nothing was saved, so just move on.
-      if (result.kind === "not_due") return onDone(false);
-      updateHud({
-        clout: result.cloutAfter,
-        learnerLevel: result.learnerLevel,
-        totalXp: result.learnerTotalXp,
-        dueCount: result.dueCount,
-      });
-      setSubmission({ status: "answered", answer, result });
-    } catch {
-      setSubmission({ status: "failed", answer });
-    }
+  // Before answering the flag only removes the question; after, it also undoes
+  // this answer (so it sends the attemptId). The HUD shows the undone numbers.
+  function makeFlagControl(answeredAttemptId?: string) {
+    const handleFlagged = ({ hud, nextCard }: FlagQuestionResult) => {
+      updateHud(hud);
+      onFlagged(nextCard);
+    };
+    return <FlagControl questionId={card.questionId} attemptId={answeredAttemptId} onFlagged={handleFlagged} />;
   }
 
   let afterAnswer = null;
@@ -72,6 +59,7 @@ export function CardShowing({ card, attemptId, onDone }: CardShowingProps) {
           confidenceStep={submission.answer.confidenceStep}
           animate={!prefersReducedMotion}
           onContinue={() => (openedDoors.length > 0 ? setDoorsToUnveil(openedDoors) : onDone(needsRetry))}
+          flagControl={makeFlagControl(attemptId)}
         />
         {doorsToUnveil && <DoorUnveilingQueue doors={doorsToUnveil} onAllClosed={() => onDone(needsRetry)} />}
       </>
@@ -90,6 +78,7 @@ export function CardShowing({ card, attemptId, onDone }: CardShowingProps) {
           : undefined
       }
       afterAnswer={afterAnswer}
+      flagControl={makeFlagControl()}
     />
   );
 }

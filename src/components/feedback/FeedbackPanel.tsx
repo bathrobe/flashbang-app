@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import type { ConfidenceStep } from "@/game/settings";
 import { playSound } from "@/lib/sound";
 import { chooseAnswerSound } from "./chooseAnswerSound";
@@ -15,12 +15,13 @@ type FeedbackPanelProps = {
   confidenceStep: ConfidenceStep; // the step the answer was confirmed at (to spot an All in wipe)
   animate?: boolean; // false under reduced motion: bars and counters jump to the end
   onContinue: () => void;
+  flagControl?: ReactNode; // beside Continue: flagging here also undoes this answer
 };
 
 // Shown in place of the Confirm area once submitAnswer returns. The card's
 // options above it are already re-coloured correct, wrong and missed.
 // Nothing advances on its own: only Continue moves to the next card.
-export function FeedbackPanel({ result, confidenceStep, animate = true, onContinue }: FeedbackPanelProps) {
+export function FeedbackPanel({ result, confidenceStep, animate = true, onContinue, flagControl }: FeedbackPanelProps) {
   const isAllInWipe = !result.wasCorrect && result.kind === "first" && confidenceStep === "all_in" && result.cloutBefore > 0;
 
   // Sounds only add to what is on screen: every event here is also shown, so
@@ -80,7 +81,7 @@ export function FeedbackPanel({ result, confidenceStep, animate = true, onContin
         <Button variant="accent-1" onClick={onContinue} autoFocus>
           Continue
         </Button>
-        {/* FLAG SLOT (checklist item 16): <FlagControl questionId={result.questionId} /> goes here. */}
+        {flagControl}
       </div>
     </Panel>
   );

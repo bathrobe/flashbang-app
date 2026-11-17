@@ -137,7 +137,7 @@ The build cannot do these itself. If one is not ready, record it in this list as
 
 ### Around the loop
 
-- [ ] **15. The trial door shows its requirement and unveils once when every atom reaches Level 3**
+- [x] **15. The trial door shows its requirement and unveils once when every atom reaches Level 3**
   Spec ref: `spec.md > Course Screens > Trial door`
   What to build: `getDoorProgress` in `src/game/levels.ts` with a test, `TrialDoor.tsx`, `DoorUnveiling.tsx` as a full-screen overlay with the `door-unveil` sound, `doorJustOpened` handled after Continue, the `markDoorUnveiled` action, and the replay on the next course-view visit when opened but not unveiled. An open door shows "Coming soon."
   Acceptance: From the trial-door story in `prd.md > Course View`: the requirement in words and progress such as "4 of 7"; the unveiling plays once, with its own sound, the moment the requirement is met; afterwards the door says "Coming soon."; an open door never re-locks.

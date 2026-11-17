@@ -62,7 +62,9 @@ export function summarizeToday(input: { events: TodayEvent[]; atoms: AtomNow[]; 
     });
   }
 
-  const withoutFlag = ({ reviewedDirectly, ...gain }: AtomGain & { reviewedDirectly: boolean }): AtomGain => gain;
+  // Drops the internal reviewedDirectly flag from what the end screen gets.
+  const withoutFlag = ({ atomId, sentence, xpGained, levelBefore, levelNow }: AtomGain): AtomGain =>
+    ({ atomId, sentence, xpGained, levelBefore, levelNow });
   const xpGainedToday = gains.reduce((total, gain) => total + gain.xpGained, 0);
   const learnerLevelBefore = getLearnerLevel(input.learnerTotalXpNow - xpGainedToday);
   const learnerLevelNow = getLearnerLevel(input.learnerTotalXpNow);

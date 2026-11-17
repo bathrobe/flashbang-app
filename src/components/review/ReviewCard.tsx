@@ -19,12 +19,13 @@ type ReviewCardProps = {
   isSaving?: boolean; // waiting for the server: Confirm shows a busy state
   lookByOptionId?: Record<string, OptionLook>; // after grading: correct, wrong, missed
   afterAnswer?: ReactNode; // the result (or a save error), shown in place of Confirm
+  flagControl?: ReactNode; // beside Confirm, before answering
 };
 
 // One question. The session gives each showing its own `key`, so a new card
 // always starts with nothing chosen and the slider at Hunch.
 // The atom the question tests is never named here: that would give it away.
-export function ReviewCard({ card, onConfirm, isLocked, isSaving = false, lookByOptionId, afterAnswer }: ReviewCardProps) {
+export function ReviewCard({ card, onConfirm, isLocked, isSaving = false, lookByOptionId, afterAnswer, flagControl }: ReviewCardProps) {
   const [chosenOptionIds, setChosenOptionIds] = useState<string[]>([]);
   const [confidenceStep, setConfidenceStep] = useState<ConfidenceStep>("hunch");
 
@@ -62,7 +63,7 @@ export function ReviewCard({ card, onConfirm, isLocked, isSaving = false, lookBy
           >
             {isSaving ? "Saving…" : "Confirm"}
           </Button>
-          {/* FLAG SLOT (checklist item 16): <FlagControl questionId={card.questionId} /> goes here. */}
+          {flagControl}
         </div>
       )}
     </Panel>

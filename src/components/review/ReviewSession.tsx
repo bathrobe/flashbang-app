@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Panel } from "@/components/ui/Panel";
 import { getQueueAfterAnswer } from "@/game/sessionQueue";
+import type { LoadCardResult } from "@/server/cardTypes";
 import { CardShowing } from "./CardShowing";
 import { useFrontCard } from "./useFrontCard";
 
@@ -23,7 +24,16 @@ export function ReviewSession({ atomIds }: { atomIds: string[] }) {
     setShowingNumber((number) => number + 1);
   }
 
-  const frontCard = useFrontCard(queue[0], showingNumber, () => moveOn(false));
+  const { frontCard, replaceFrontCard } = useFrontCard(queue[0], showingNumber, () => moveOn(false));
+
+  // After a flag the server sends the same atom's next card. It replaces the
+  // flagged one in place, so the atom keeps its one spot in the queue (a miss
+  // is only re-inserted on Continue, which the flagged card never reached).
+  // No other question left: skip the atom, with no re-insert.
+  function showCardAfterFlag(nextCard: LoadCardResult) {
+    if (nextCard.kind === "first" || nextCard.kind === "retry") replaceFrontCard(nextCard);
+    else moveOn(false);
+  }
 
   const isFinished = queue.length === 0;
   useEffect(() => {
@@ -48,7 +58,13 @@ export function ReviewSession({ atomIds }: { atomIds: string[] }) {
       )}
 
       {frontCard.status === "showing" && (
-        <CardShowing key={frontCard.attemptId} card={frontCard.card} attemptId={frontCard.attemptId} onDone={moveOn} />
+        <CardShowing
+          key={frontCard.attemptId}
+          card={frontCard.card}
+          attemptId={frontCard.attemptId}
+          onDone={moveOn}
+          onFlagged={showCardAfterFlag}
+        />
       )}
     </div>
   );
