@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/Button";
 import { authClient } from "@/lib/authClient";
 
 export function SignOutButton() {
@@ -13,9 +14,5 @@ export function SignOutButton() {
     router.refresh();
   }
 
-  return (
-    <button type="button" onClick={signOutThenGoToSignIn} className="cursor-pointer border px-4 py-2">
-      Sign out
-    </button>
-  );
+  return <Button onClick={signOutThenGoToSignIn}>Sign out</Button>;
 }

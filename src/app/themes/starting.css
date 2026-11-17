@@ -1,0 +1,65 @@
+/*
+  The starting theme: cream paper, flat saturated primaries, thick black
+  outlines, hard offset shadows, square corners, no gradients.
+
+  Every name here is declared in ../theme.css. Changing a value here changes
+  every component that uses the token. A new theme is a copy of this file with
+  another name in the selector, imported in globals.css.
+
+  Each "-ink" colour is measured against its fill at 4.5 to 1 or better.
+*/
+[data-theme="starting"] {
+  --color-page: #f6ecd2; /* cream paper */
+  --color-panel: #fffaf0;
+  --color-ink: #141414;
+  --color-ink-muted: #5c5546;
+  --color-outline: #141414;
+
+  --color-accent-1: #c81e2b; /* book-fair red */
+  --color-accent-1-ink: #ffffff;
+  --color-accent-2: #ffc800; /* school-bus yellow */
+  --color-accent-2-ink: #141414;
+  --color-accent-3: #007a78; /* teal */
+  --color-accent-3-ink: #ffffff;
+  --color-accent-4: #0047ab; /* cobalt */
+  --color-accent-4-ink: #ffffff;
+
+  --color-correct: #1b7a3a;
+  --color-correct-ink: #ffffff;
+  --color-wrong: #a81c1c;
+  --color-wrong-ink: #ffffff;
+  --color-missed: #ffb347;
+  --color-missed-ink: #141414;
+
+  --color-xp: #0047ab;
+  --color-clout: #8a4b00;
+
+  /* Level 1 paper, 2 bronze, 3 silver, 4 gold, 5 and above prismatic */
+  --color-level-1-fill: #efe4c6;
+  --color-level-1-edge: #8a7f66;
+  --color-level-1-ink: #141414;
+  --color-level-2-fill: #c47a3d;
+  --color-level-2-edge: #6b3d14;
+  --color-level-2-ink: #141414;
+  --color-level-3-fill: #c9ced6;
+  --color-level-3-edge: #6b7280;
+  --color-level-3-ink: #141414;
+  --color-level-4-fill: #f2c230;
+  --color-level-4-edge: #9a6b00;
+  --color-level-4-ink: #141414;
+  --color-level-5-fill: #a21caf; /* prismatic: magenta fill, cyan edge, flat */
+  --color-level-5-edge: #17b8c9;
+  --color-level-5-ink: #ffffff;
+
+  /* The --loaded-font-* variables are set on <html> by next/font in layout.tsx */
+  --font-display: var(--loaded-font-archivo-black), "Arial Black", sans-serif;
+  --font-body: var(--loaded-font-atkinson-hyperlegible), Verdana, sans-serif;
+  --font-number: var(--loaded-font-silkscreen), monospace;
+
+  --border-width-thick: 3px;
+  --shadow-hard: 4px 4px 0 0 var(--color-outline);
+  --radius-frame: 0px;
+
+  --transition-duration-fast: 120ms;
+  --transition-duration-slow: 600ms;
+}

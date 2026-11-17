@@ -1,0 +1,85 @@
+/*
+  Every design token in the app. Components use ONLY these names, through the
+  Tailwind utilities they create (bg-panel, text-ink, border-outline,
+  bg-level-3-fill, font-display, border-thick, shadow-hard, rounded-frame,
+  duration-fast ...). A raw colour value in a component is a defect.
+
+  The values here are plain grey fallbacks. The real look lives in
+  src/app/themes/<name>.css, which overrides these same variable names under
+  [data-theme="<name>"]. To change the look, edit the theme file, not this one.
+
+  `--color-*: initial` removes Tailwind's built-in palette, so a class like
+  bg-red-500 does not exist and cannot sneak into a component.
+*/
+@theme static {
+  --color-*: initial;
+
+  /* Surfaces and text */
+  --color-page: #eeeeee;
+  --color-panel: #ffffff;
+  --color-ink: #111111;
+  --color-ink-muted: #555555;
+  --color-outline: #111111;
+
+  /* Accents: each has an "ink", the text colour that is readable on top of it */
+  --color-accent-1: #444444;
+  --color-accent-1-ink: #ffffff;
+  --color-accent-2: #cccccc;
+  --color-accent-2-ink: #111111;
+  --color-accent-3: #444444;
+  --color-accent-3-ink: #ffffff;
+  --color-accent-4: #444444;
+  --color-accent-4-ink: #ffffff;
+
+  /* Answer states */
+  --color-correct: #333333;
+  --color-correct-ink: #ffffff;
+  --color-wrong: #333333;
+  --color-wrong-ink: #ffffff;
+  --color-missed: #cccccc;
+  --color-missed-ink: #111111;
+
+  /* Scores */
+  --color-xp: #333333;
+  --color-clout: #333333;
+
+  /* Atom level looks: fill, edge and ink for Level 1 to 5 (5 also covers every level above) */
+  --color-level-1-fill: #f5f5f5;
+  --color-level-1-edge: #777777;
+  --color-level-1-ink: #111111;
+  --color-level-2-fill: #dddddd;
+  --color-level-2-edge: #666666;
+  --color-level-2-ink: #111111;
+  --color-level-3-fill: #cccccc;
+  --color-level-3-edge: #555555;
+  --color-level-3-ink: #111111;
+  --color-level-4-fill: #bbbbbb;
+  --color-level-4-edge: #444444;
+  --color-level-4-ink: #111111;
+  --color-level-5-fill: #333333;
+  --color-level-5-edge: #000000;
+  --color-level-5-ink: #ffffff;
+
+  /* Type */
+  --font-display: sans-serif;
+  --font-body: sans-serif;
+  --font-number: monospace;
+
+  /* Frames */
+  --border-width-thick: 2px;
+  --shadow-hard: 2px 2px 0 0 var(--color-outline);
+  --radius-frame: 0px;
+
+  /* Animation times */
+  --transition-duration-fast: 150ms;
+  --transition-duration-slow: 600ms;
+}
+
+/*
+  Tailwind copies a shadow's value into its own shadow-hard class when the CSS
+  is built, which would ignore a theme file's override. This version reads the
+  variable when the page is shown, so themes can change --shadow-hard.
+*/
+@utility shadow-hard {
+  box-shadow: var(--shadow-hard);
+}

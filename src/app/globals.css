@@ -1,1 +1,4 @@
 @import "tailwindcss";
+@import "./theme.css";
+/* One theme for now. <html data-theme="starting"> in layout.tsx picks it. */
+@import "./themes/starting.css";

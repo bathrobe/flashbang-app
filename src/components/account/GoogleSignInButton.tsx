@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/Button";
 import { authClient } from "@/lib/authClient";
 
 // Sends the visitor to Google. Google sends them back to /courses, or to the
@@ -14,8 +15,8 @@ export function GoogleSignInButton() {
   }
 
   return (
-    <button type="button" onClick={continueWithGoogle} className="cursor-pointer border px-4 py-2">
+    <Button variant="accent-2" onClick={continueWithGoogle}>
       Continue with Google
-    </button>
+    </Button>
   );
 }
