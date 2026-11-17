@@ -69,7 +69,7 @@ The build cannot do these itself. If one is not ready, record it in this list as
 
 ### Rules and content: no screens needed
 
-- [ ] **4. The scoring rules pass their tests**
+- [x] **4. The scoring rules pass their tests**
   Spec ref: `spec.md > Scoring Rules` (all subsections); `spec.md > Tests`
   What to build: `src/game/settings.ts`, `levels.ts`, `nextInterval.ts`, `clout.ts`, `scoreAnswer.ts`, `pickQuestion.ts` and `learnerDate.ts` as plain functions with the date passed in, and the six test files in `tests/game/`. Include the required test that replays a no-miss learner at each confidence step and asserts Level 3 by day 14.
   Acceptance: From `prd.md > Answer Feedback and Scoring`: XP never decreases; only a first attempt changes interval and due date; clout never goes below zero; All in while correct gains at least 25; a retry earns 3 XP and changes nothing else. Level 3 is at 40 XP.

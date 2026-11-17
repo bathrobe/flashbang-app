@@ -1,0 +1,28 @@
+// The 24 lecture titles, copied from guidebook.md in the source library
+// (~/Developer/athenian-democracy). Position in the list + 1 is the lecture number.
+export const lectureTitles = [
+  "Why Athenian Democracy Matters",
+  "The Origins of Greek Democracy",
+  "Solon: The Father of Democracy?",
+  "Cleisthenes the Innovator",
+  "The Nearly Bloodless Coup",
+  "Democracy at War",
+  "The Popular Assembly",
+  "The Council and the Magistrates",
+  "The Citizens of Athens",
+  "“The Empire You Hold Is a Tyranny”",
+  "The Age of Pericles",
+  "Public Speaking in Athens",
+  "Pericles’s Funeral Speech",
+  "Democracy under Duress",
+  "The Culture of Athenian Democracy",
+  "Political Leadership in Athens",
+  "The Brutality of Athenian Democracy",
+  "Athenian Defeat in Sicily",
+  "Suspension, Restoration, and Termination",
+  "The Democratic Theater",
+  "Law and Order under Democracy",
+  "Ancient Critics of Athenian Democracy",
+  "Post-Athenian Democracies",
+  "Democracy Today, Democracy Tomorrow",
+];
