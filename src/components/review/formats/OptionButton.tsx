@@ -1,15 +1,17 @@
 "use client";
 
-// One answer option. Its look is one of the states below; "hovered" is the
-// resting look under the pointer. The last three are shown after an answer is
+// One answer option. Its look is one of the states below; "hovered" is what
+// a resting option turns into under the pointer (set directly only by the
+// theme playground, to show it without a pointer). The last three are shown after an answer is
 // graded (feedback, checklist item 12): "missed" marks a correct option the
 // learner did not choose on a multi-select. Every fill/ink pair in the theme
 // file reaches 4.5 to 1.
-export type OptionLook = "resting" | "chosen" | "correct" | "wrong" | "missed";
+export type OptionLook = "resting" | "hovered" | "chosen" | "correct" | "wrong" | "missed";
 
 // Full class names are spelled out because Tailwind only finds whole names in the source.
 const coloursByLook: Record<OptionLook, string> = {
   resting: "bg-panel text-ink",
+  hovered: "bg-accent-2 text-accent-2-ink",
   chosen: "bg-accent-4 text-accent-4-ink",
   correct: "bg-correct text-correct-ink",
   wrong: "bg-wrong text-wrong-ink",
@@ -19,6 +21,7 @@ const coloursByLook: Record<OptionLook, string> = {
 // Read out by screen readers, so the state is not carried by colour alone.
 const spokenStateByLook: Record<OptionLook, string> = {
   resting: "",
+  hovered: "",
   chosen: "",
   correct: " (correct)",
   wrong: " (wrong)",
@@ -26,7 +29,7 @@ const spokenStateByLook: Record<OptionLook, string> = {
 };
 
 // A visible mark too, so a graded option never relies on colour alone.
-const visibleMarkByLook: Record<OptionLook, string> = { resting: "", chosen: "", correct: "✓", wrong: "✗", missed: "missed" };
+const visibleMarkByLook: Record<OptionLook, string> = { resting: "", hovered: "", chosen: "", correct: "✓", wrong: "✗", missed: "missed" };
 
 const hoverLook = "cursor-pointer hover:bg-accent-2 hover:text-accent-2-ink";
 

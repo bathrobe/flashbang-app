@@ -10,11 +10,12 @@ type NavbarProps = {
   userName: string;
   userImage: string | null;
   nextDueDate: string | null;
-  showAuthorLink: boolean;
+  showAuthorLink: boolean; // admin only: the Author and Theme links
+  saveSoundOn?: (soundOn: boolean) => Promise<unknown>; // the theme playground passes a do-nothing
 };
 
 // On every signed-in page. flex-wrap lets it fold onto two lines in a narrow window.
-export function Navbar({ userName, userImage, nextDueDate, showAuthorLink }: NavbarProps) {
+export function Navbar({ userName, userImage, nextDueDate, showAuthorLink, saveSoundOn }: NavbarProps) {
   const { learnerLevel, clout } = useHud();
 
   return (
@@ -23,9 +24,14 @@ export function Navbar({ userName, userImage, nextDueDate, showAuthorLink }: Nav
         Flashbang
       </Link>
       {showAuthorLink && (
-        <Link href="/author" className="underline">
-          Author
-        </Link>
+        <>
+          <Link href="/author" className="underline">
+            Author
+          </Link>
+          <Link href="/theme" className="underline">
+            Theme
+          </Link>
+        </>
       )}
 
       {/* ml-auto pushes everything after it to the right-hand side. */}
@@ -33,7 +39,7 @@ export function Navbar({ userName, userImage, nextDueDate, showAuthorLink }: Nav
         <NavbarNumber label="Level" value={learnerLevel} valueClassName="text-xp" />
         <NavbarNumber label="Clout" value={clout} valueClassName="text-clout" />
         <InboxButton nextDueDate={nextDueDate} />
-        <SoundToggle />
+        <SoundToggle saveSoundOn={saveSoundOn} />
         <AccountMenu userName={userName} userImage={userImage} />
       </div>
     </nav>

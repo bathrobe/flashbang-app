@@ -167,7 +167,7 @@ The build cannot do these itself. If one is not ready, record it in this list as
   Acceptance: From `prd.md > Returning After a Gap`: the message greets the learner, says where they are, and names anything published since; one button starts about five atoms, most overdue first; the badge shows the short count; declining "Keep going" is as easy as accepting; no "overdue", streak or red backlog total; XP, levels and clout unchanged; shown once per return and dismissible.
   Verify: In `dev`, set `last_review_on` to ten days ago with all seven atoms due, reload, and confirm the message and a badge of 5. Finish the five and confirm the end screen offers "Keep going" and "Done for today".
 
-- [ ] **20. A question can show a credited image, and a missing image never breaks the card**
+- [x] **20. A question can show a credited image, and a missing image never breaks the card**
   Spec ref: `spec.md > Review Session > Question image`; `spec.md > Content Pipeline > Images`
   What to build: `QuestionImage.tsx` as a plain `<img>` with the credit line, removing itself and its credit on a load error. The image path, credit and kind fields on the question editor. `public/question-images/` with at least two Wikimedia Commons or other open-access images added to Lecture 1 questions in `dev`, each viewed, with source and licence in the credit.
   Acceptance: From the images story in `prd.md > Review Session`: a question may have one image; a question without one looks complete; every image shows a credit line; no images from the Great Courses materials; if an image fails to load the card is still answerable.

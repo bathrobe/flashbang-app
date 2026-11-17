@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { confidenceSteps, type ConfidenceStep } from "@/game/settings";
 
 const labelByStep: Record<ConfidenceStep, string> = {
@@ -20,14 +21,15 @@ type ConfidenceSliderProps = {
 // at Hunch; it locks once the answer is submitted.
 export function ConfidenceSlider({ confidenceStep, onChange, isLocked }: ConfidenceSliderProps) {
   const position = confidenceSteps.indexOf(confidenceStep);
+  const sliderId = useId(); // unique, so several sliders can share a page (the theme playground)
 
   return (
     <div>
-      <label htmlFor="confidence-slider" className="font-bold">
+      <label htmlFor={sliderId} className="font-bold">
         Confidence: <span className="font-display">{labelByStep[confidenceStep]}</span>
       </label>
       <input
-        id="confidence-slider"
+        id={sliderId}
         type="range"
         min={0}
         max={confidenceSteps.length - 1}

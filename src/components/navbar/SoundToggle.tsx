@@ -4,14 +4,15 @@ import { useHud } from "@/components/hud/HudProvider";
 import { setSoundOn } from "@/server/actions/setSoundOn";
 
 // The speaker button. The choice is saved on the account (learner_state.sound_on).
-export function SoundToggle() {
+// `saveSoundOn` is swapped for a do-nothing on the theme playground.
+export function SoundToggle({ saveSoundOn = setSoundOn }: { saveSoundOn?: (soundOn: boolean) => Promise<unknown> }) {
   const { soundOn, updateHud } = useHud();
 
   async function toggleSound() {
     const newSoundOn = !soundOn;
     updateHud({ soundOn: newSoundOn }); // show it at once ...
     try {
-      await setSoundOn(newSoundOn);
+      await saveSoundOn(newSoundOn);
     } catch {
       updateHud({ soundOn: !newSoundOn }); // ... and put it back if the save failed
     }

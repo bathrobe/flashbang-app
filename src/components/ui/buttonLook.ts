@@ -6,7 +6,9 @@ const lookForEveryButton =
   "inline-flex cursor-pointer items-center justify-center gap-2 rounded-frame border-thick border-outline " +
   "px-4 py-2 font-bold shadow-hard transition-transform duration-fast " +
   "hover:-translate-x-px hover:-translate-y-px active:translate-x-1 active:translate-y-1 active:shadow-none " +
-  "disabled:cursor-not-allowed disabled:opacity-60";
+  // Disabled: its own flat fill and ink, dashed and without the shadow. Not a
+  // fade: fading a coloured button dropped its text under 4.5 to 1.
+  "disabled:cursor-not-allowed disabled:border-dashed disabled:bg-disabled disabled:text-disabled-ink disabled:shadow-none";
 
 // Full class names are spelled out because Tailwind only finds whole names in the source.
 const coloursByVariant = {

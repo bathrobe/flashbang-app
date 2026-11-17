@@ -16,12 +16,20 @@ type FeedbackPanelProps = {
   animate?: boolean; // false under reduced motion: bars and counters jump to the end
   onContinue: () => void;
   flagControl?: ReactNode; // beside Continue: flagging here also undoes this answer
+  isSample?: boolean; // the theme playground: many panels at once, so no sounds and no grabbing focus
 };
 
 // Shown in place of the Confirm area once submitAnswer returns. The card's
 // options above it are already re-coloured correct, wrong and missed.
 // Nothing advances on its own: only Continue moves to the next card.
-export function FeedbackPanel({ result, confidenceStep, animate = true, onContinue, flagControl }: FeedbackPanelProps) {
+export function FeedbackPanel({
+  result,
+  confidenceStep,
+  animate = true,
+  onContinue,
+  flagControl,
+  isSample = false,
+}: FeedbackPanelProps) {
   const isAllInWipe = !result.wasCorrect && result.kind === "first" && confidenceStep === "all_in" && result.cloutBefore > 0;
 
   // Sounds only add to what is on screen: every event here is also shown, so
@@ -30,16 +38,16 @@ export function FeedbackPanel({ result, confidenceStep, animate = true, onContin
   const answerSoundPlayed = useRef(false);
   useEffect(() => {
     // The ref stops a second play when React runs effects twice in development.
-    if (answerSoundPlayed.current) return;
+    if (answerSoundPlayed.current || isSample) return;
     answerSoundPlayed.current = true;
     playSound(chooseAnswerSound({ wasCorrect: result.wasCorrect, isAllInWipe, hasLevelUp, animate }));
-  }, [result.wasCorrect, isAllInWipe, hasLevelUp, animate]);
+  }, [result.wasCorrect, isAllInWipe, hasLevelUp, animate, isSample]);
 
   // Level-ups: the bars report each one as it is shown; the jingle plays once
   // per answer, at the first one. (Without animation it played above instead.)
   const levelUpSoundPlayed = useRef(false);
   function handleLevelUp() {
-    if (levelUpSoundPlayed.current) return;
+    if (levelUpSoundPlayed.current || isSample) return;
     levelUpSoundPlayed.current = true;
     playSound("level-up");
   }
@@ -78,7 +86,7 @@ export function FeedbackPanel({ result, confidenceStep, animate = true, onContin
       {!result.wasCorrect && <p className="font-bold">This one will come back later in this session.</p>}
 
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <Button variant="accent-1" onClick={onContinue} autoFocus>
+        <Button variant="accent-1" onClick={onContinue} autoFocus={!isSample}>
           Continue
         </Button>
         {flagControl}

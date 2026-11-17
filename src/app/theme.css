@@ -39,6 +39,10 @@
   --color-missed: #cccccc;
   --color-missed-ink: #111111;
 
+  /* A disabled button: its own fill and ink, so its text stays readable */
+  --color-disabled: #dddddd;
+  --color-disabled-ink: #444444;
+
   /* Scores */
   --color-xp: #333333;
   --color-clout: #333333;

@@ -6,7 +6,8 @@
   every component that uses the token. A new theme is a copy of this file with
   another name in the selector, imported in globals.css.
 
-  Each "-ink" colour is measured against its fill at 4.5 to 1 or better.
+  Each "-ink" colour is measured against its fill at 4.5 to 1 or better:
+  check with `pnpm exec tsx scripts/checkContrast.ts` after any change.
 */
 [data-theme="starting"] {
   --color-page: #f6ecd2; /* cream paper */
@@ -30,6 +31,9 @@
   --color-wrong-ink: #ffffff;
   --color-missed: #ffb347;
   --color-missed-ink: #141414;
+
+  --color-disabled: #e6dcc0; /* a shade under the page: flat, clearly "off" */
+  --color-disabled-ink: #5c5546;
 
   --color-xp: #0047ab;
   --color-clout: #8a4b00;
