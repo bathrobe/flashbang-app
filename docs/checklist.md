@@ -143,7 +143,7 @@ The build cannot do these itself. If one is not ready, record it in this list as
   Acceptance: From the trial-door story in `prd.md > Course View`: the requirement in words and progress such as "4 of 7"; the unveiling plays once, with its own sound, the moment the requirement is met; afterwards the door says "Coming soon."; an open door never re-locks.
   Verify: In `dev`, set six atoms' XP to 40 and one to 30 with a one-off script, answer that atom correctly, and confirm the unveiling plays once. Reload the course view and confirm the door reads "Coming soon." and does not replay.
 
-- [ ] **16. A flagged question leaves rotation and its answer is undone**
+- [x] **16. A flagged question leaves rotation and its answer is undone**
   Spec ref: `spec.md > Flagging`; `spec.md > Review Session > Flag control`
   What to build: `FlagControl.tsx` on the card and on the feedback panel, and the `flagQuestion` action: set status `flagged` with note, time and user; when an `attemptId` is given, void the event, subtract its XP from main and linked atoms, reverse its clout change, and restore the main atom from the `before` snapshot; return the next card for the same atom.
   Acceptance: From `prd.md > Flagging a Question`: the flag is available before and after answering; flagging removes the question at once; an answered question's XP, clout, interval and due date return to what they were; the atom is shown again with a different question as a first attempt; if it was the atom's only question the atom is skipped; the note is optional.
