@@ -99,7 +99,7 @@ The build cannot do these itself. If one is not ready, record it in this list as
   Acceptance: From `prd.md > Courses View` and `> Course View`: today's date in large type; one course entry showing title, lecturer, "1 of 24 lectures" and atoms due; all 24 lectures in order; unpublished lectures greyed with placeholder slots and not clickable; each atom item's look changes with level; hovering or clicking an item shows its sentence, level, XP toward the next level and next due date.
   Verify: Run `pnpm dev`, open `/courses` and confirm the date and the course card. Open the course and confirm 24 rows, with Lecture 1 showing "Start Lecture 1" and the other 23 greyed.
 
-- [ ] **9. Starting Lecture 1 puts its seven atoms in the inbox**
+- [x] **9. Starting Lecture 1 puts its seven atoms in the inbox**
   Spec ref: `spec.md > Course Screens > Start-lecture step`
   What to build: The start page, `StartLectureSteps.tsx`, `AtomList.tsx`, and the `startLecture` action inserting `lecture_progress` and one `atom_progress` row per active atom (interval 1 day, due today). "Not yet" returns to the course view with `?comeBack=1` and its one line.
   Acceptance: From `prd.md > Starting a Lecture`: the listen check with "Yes" and "Not yet"; "Not yet" adds nothing to the inbox; "Yes" leads to the atoms listed as sentences with "Begin"; "Begin" makes all atoms due now and starts the session; before this step the atoms do not count toward the badge.
