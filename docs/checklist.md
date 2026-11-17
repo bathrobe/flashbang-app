@@ -123,7 +123,7 @@ The build cannot do these itself. If one is not ready, record it in this list as
   Acceptance: From `prd.md > Answer Feedback and Scoring`: a correct answer turns green; the explanation and the main atom's sentence appear; the main atom's bar fills from its old value to its new one; linked atoms' bars stack beneath and fill in turn; clout counts up or down; a miss shows the correct answer and says the atom will come back; multi-select marks each option as correctly chosen, wrongly chosen or missed; each level-up is called out; nothing advances without Continue.
   Verify: Run `pnpm dev`, answer a question that has linked atoms correctly, and confirm stacked bars filling one after another and the navbar clout rising. Answer one wrong at Sure and confirm clout falls by 25 and no bar moves.
 
-- [ ] **13. Sounds play for the five events and can be switched off; reduced motion is respected**
+- [x] **13. Sounds play for the five events and can be switched off; reduced motion is respected**
   Spec ref: `spec.md > Answer Feedback > Sounds`, `> Motion`
   What to build: `src/lib/sound.ts` with `playSound(name)`, five CC0 files from Kenney's audio packs in `public/sounds/` with `CREDITS.md`, and calls for correct, wrong, level-up (once per answer) and All in wipe. `src/lib/useReducedMotion.ts`; bars and counters jump to final values when it is on. All timing values come from theme tokens.
   Acceptance: From `prd.md > Sound and Motion`: sounds for correct, wrong (gentle), level-up, All in wipe and door unveiling exist; the navbar toggle turns all sound off; with sound off every event is still shown on screen; reduced motion hides nothing.

@@ -40,3 +40,17 @@ export function getLevelEdgeAndFill(level: number) {
   const lookLevel = Math.min(Math.max(level, 1), 5);
   return { edge: edgeByLevel[lookLevel], fill: fillByLevel[lookLevel] };
 }
+
+// The same looks for SVG shapes (the end screen's session map): a point's fill
+// and edge, and the ink for the number drawn on it.
+const svgLookByLevel: Record<number, { point: string; label: string }> = {
+  1: { point: "fill-level-1-fill stroke-level-1-edge", label: "fill-level-1-ink" },
+  2: { point: "fill-level-2-fill stroke-level-2-edge", label: "fill-level-2-ink" },
+  3: { point: "fill-level-3-fill stroke-level-3-edge", label: "fill-level-3-ink" },
+  4: { point: "fill-level-4-fill stroke-level-4-edge", label: "fill-level-4-ink" },
+  5: { point: "fill-level-5-fill stroke-level-5-edge", label: "fill-level-5-ink" },
+};
+
+export function getLevelSvgLook(level: number) {
+  return svgLookByLevel[Math.min(Math.max(level, 1), 5)];
+}

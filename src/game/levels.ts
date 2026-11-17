@@ -38,3 +38,11 @@ export function isTrialDoorEarned(atomXpValues: number[]): boolean {
   if (atomXpValues.length === 0) return false;
   return atomXpValues.every((xp) => getLevelFromXp(xp) >= settings.levels.trialDoorLevel);
 }
+
+// Progress toward a lecture's trial door: how many of its active atoms are at
+// the door level, out of how many. Same inputs as isTrialDoorEarned.
+export function getDoorProgress(atomXpValues: number[]) {
+  const doorLevel = settings.levels.trialDoorLevel;
+  const atomsAtDoorLevel = atomXpValues.filter((xp) => getLevelFromXp(xp) >= doorLevel).length;
+  return { doorLevel, atomsAtDoorLevel, atomCount: atomXpValues.length };
+}

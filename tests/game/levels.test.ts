@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  getDoorProgress,
   getLearnerLevel,
   getLevelFromXp,
   getNextLearnerLevelXpThreshold,
@@ -58,5 +59,15 @@ describe("learner level", () => {
     expect(getNextLearnerLevelXpThreshold(0)).toBe(100);
     expect(getNextLearnerLevelXpThreshold(100)).toBe(200);
     expect(getNextLearnerLevelXpThreshold(199)).toBe(200);
+  });
+});
+
+describe("getDoorProgress", () => {
+  it("counts the atoms at Level 3 out of all active atoms", () => {
+    expect(getDoorProgress([0, 39, 40, 75])).toEqual({ doorLevel: 3, atomsAtDoorLevel: 2, atomCount: 4 });
+  });
+
+  it("is 0 of 0 for a lecture with no atoms", () => {
+    expect(getDoorProgress([])).toEqual({ doorLevel: 3, atomsAtDoorLevel: 0, atomCount: 0 });
   });
 });
