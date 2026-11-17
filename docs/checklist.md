@@ -31,9 +31,7 @@ The build cannot do these itself. If one is not ready, record it in this list as
 | After item 3 | Add the production redirect address to the Google OAuth client; sign in once locally and once on the Vercel address |
 | Item 22 | Read and edit the 42 questions on `/author/1` in production, press "Publish lecture", do the first review |
 
-**Waiting as of 2026-11-16 (build run 1):**
-- **Neon terms not accepted.** Item 1 is done except the database: `vercel integration add neon` stops at "Terms have not been accepted." Joe accepts in the Vercel dashboard, then the command is re-run. Items 2, 3 and everything that reads the database wait on this.
-- **`.env.local` values lost.** The item 1 agent ran `vercel link`, which overwrote the file. `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `ALLOWED_EMAILS` and `ADMIN_EMAILS` must be pasted in again before item 3.
+**Resolved 2026-11-16:** Neon was created through the Vercel dashboard (database `flashbang-app-db`, Neon project `rapid-surf-84071289`, branches `main` and `dev`, Neon Auth off). The `.env.local` values lost to `vercel link` were pasted in again by Joe.
 
 ## Rules for the build agent
 
@@ -49,13 +47,13 @@ The build cannot do these itself. If one is not ready, record it in this list as
 
 ### Foundations: prove the risky plumbing first
 
-- [ ] **1. The empty app is on GitHub and live on Vercel with a Neon database attached**
+- [x] **1. The empty app is on GitHub and live on Vercel with a Neon database attached**
   Spec ref: `spec.md > Runtime & Deployment > One-time setup` and `> Package scripts`; `spec.md > Stack`
   What to build: In `~/Developer/flashbang`, scaffold with `pnpm create next-app` (TypeScript, App Router, Tailwind v4, `src/` directory), keeping the existing `docs/`, `process-notes.md`, `.gitignore` entries and `.env.local` (scaffold in a temporary folder and move the files in if the tool refuses a non-empty folder). Install the packages in the Stack table. Add every script in the Package scripts table (stubs are fine where the target does not exist yet), `vitest.config.ts`, `.env.example` with the variable names only, and a `.gitignore` that covers `.env*.local`. Create the public GitHub repo and push. Create the Vercel project from it with Node 22 or later. Add Neon from the Vercel Marketplace, create a `dev` branch in Neon, and put its pooled connection string in `.env.local`; put the production string in `.env.production.local`.
   Acceptance: The placeholder page loads at the `*.vercel.app` address and at `http://localhost:3000`. `DATABASE_URL` is set in Vercel and locally. No secret is in git.
   Verify: Open the Vercel address and confirm the placeholder page. Run `pnpm dev` and confirm the same page locally. Run `git log -p | grep -i "postgres://"` and confirm no output.
 
-- [ ] **2. Every table exists in both database branches and the course is seeded**
+- [x] **2. Every table exists in both database branches and the course is seeded**
   Spec ref: `spec.md > Data Model` (all subsections); `spec.md > Content Pipeline > Seed script`
   What to build: `src/server/db/client.ts` using Drizzle over the Neon driver's `Pool`. Table definitions in `src/server/db/schema/` for course, lecture, atom, question, question_link, atom_progress, learner_state, lecture_progress and review_event, exactly as listed in the spec. `drizzle.config.ts`, a generated migration, and `db:migrate` and `db:migrate:prod` working. `scripts/seedCourse.ts` inserting the course and 24 draft lectures with titles from `guidebook.md` in the source library, safe to run twice. Add a temporary route or script that runs one transaction (insert then roll back) so the `Pool` driver is proven on Vercel (spec Open Issue 11); if it fails there, switch `client.ts` to the `pg` driver as the spec says.
   Acceptance: Both branches hold all tables. The `dev` and production `lecture` tables each have 24 rows, all `draft`. A transaction commits and rolls back on Vercel's runtime.
