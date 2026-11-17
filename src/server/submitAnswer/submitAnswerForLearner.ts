@@ -65,12 +65,12 @@ async function answerInTransaction(transaction: DatabaseTransaction, userId: str
     context.main.lectureId,
     ...context.linkedAtoms.map((linkedAtom) => linkedAtom.lectureId),
   ];
-  const doorJustOpened = grade.wasCorrect && (await openDoorIfEarned(transaction, userId, lectureIdsThatGainedXp, now));
+  const openedDoors = grade.wasCorrect ? await openDoorIfEarned(transaction, userId, lectureIdsThatGainedXp, now) : [];
 
   // Counted inside the transaction, so it already reflects this answer.
   const dueAtoms = await findDueAtoms(userId, context.today, transaction);
 
-  const result = buildAnswerResult(context, kind, grade, score, { dueCount: dueAtoms.length, doorJustOpened });
+  const result = buildAnswerResult(context, kind, grade, score, { dueCount: dueAtoms.length, openedDoors });
   await insertReviewEvent(transaction, context, input, kind, score, result);
   return result;
 }

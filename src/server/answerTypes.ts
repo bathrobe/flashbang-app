@@ -34,7 +34,12 @@ export type AnswerResult = {
   learnerTotalXp: number; // after this answer
   dueCount: number; // what the navbar badge should now show
   doorJustOpened: boolean;
+  // Which lectures' trial doors this answer opened (the unveiling plays for each).
+  // Optional because results stored before item 15 don't have it.
+  openedDoors?: OpenedDoor[];
 };
+
+export type OpenedDoor = { lectureId: string; lectureNumber: number };
 
 // "not_due": this atom was already answered (another tab, say). Nothing was saved.
 export type SubmitAnswerResult = AnswerResult | { kind: "not_due" };

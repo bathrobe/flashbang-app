@@ -3,6 +3,7 @@ import { getButtonLook } from "@/components/ui/buttonLook";
 import { Panel } from "@/components/ui/Panel";
 import type { CourseViewLecture } from "@/server/queries/getCourseView";
 import { AtomToken } from "./AtomToken";
+import { TrialDoor } from "./TrialDoor";
 import { atomTokenSquare } from "./atomTokenLook";
 
 // An unpublished lecture's atoms are unknown until its conversation happens,
@@ -37,7 +38,11 @@ export function LectureRow({ lecture, courseSlug }: { lecture: CourseViewLecture
               <span className="text-ink-muted">Nothing due</span>
             )}
           </span>
-          {/* TRIAL DOOR SLOT: <TrialDoor /> goes here (checklist item 15). */}
+          {lecture.door && (
+            <div className="ml-auto">
+              <TrialDoor door={lecture.door} />
+            </div>
+          )}
         </div>
       )}
     </Panel>

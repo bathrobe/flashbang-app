@@ -1,4 +1,5 @@
 import { and, asc, eq } from "drizzle-orm";
+import { getDoorProgress } from "@/game/levels";
 import { database } from "@/server/db/client";
 import { course, lecture, lectureProgress } from "@/server/db/schema";
 import { findDueAtoms } from "./dueAtoms";
@@ -14,7 +15,12 @@ export type CourseViewLecture = {
   state: LectureState;
   atoms: CourseViewAtom[]; // only filled for a started lecture
   dueCount: number;
+  door: CourseViewDoor | null; // only for a started lecture
 };
+
+// A started lecture's trial door. Counts are over its ACTIVE atoms. Once
+// opened it stays open whatever the counts say (it can never re-lock).
+export type CourseViewDoor = ReturnType<typeof getDoorProgress> & { isOpen: boolean; isUnveiled: boolean };
 
 // Everything the course view needs. Null when no course has this slug
 // (the page turns that into a 404).
@@ -32,6 +38,8 @@ export async function getCourseView(userId: string, courseSlug: string, now: Dat
         title: lecture.title,
         status: lecture.status,
         startedAt: lectureProgress.startedAt,
+        doorOpenedAt: lectureProgress.doorOpenedAt,
+        doorUnveiledAt: lectureProgress.doorUnveiledAt,
       })
       .from(lecture)
       // A left join keeps every lecture; startedAt is null when this learner has not started it.
@@ -56,6 +64,14 @@ export async function getCourseView(userId: string, courseSlug: string, now: Dat
       state,
       atoms: lectureAtoms,
       dueCount: lectureAtoms.filter((atomRow) => dueAtomIds.has(atomRow.atomId)).length,
+      door:
+        state === "started"
+          ? {
+              ...getDoorProgress(lectureAtoms.map((atomRow) => atomRow.xp)),
+              isOpen: row.doorOpenedAt !== null,
+              isUnveiled: row.doorUnveiledAt !== null,
+            }
+          : null,
     };
   });
 

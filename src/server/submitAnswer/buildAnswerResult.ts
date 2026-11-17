@@ -1,7 +1,7 @@
 import type { CardKind } from "@/game/cardKind";
 import type { gradeAnswer } from "@/game/gradeAnswer";
 import type { scoreAnswer } from "@/game/scoreAnswer";
-import type { AnswerResult, XpBarChange } from "@/server/answerTypes";
+import type { AnswerResult, OpenedDoor, XpBarChange } from "@/server/answerTypes";
 import type { AnswerContext } from "./loadAnswerContext";
 
 type Grade = ReturnType<typeof gradeAnswer>;
@@ -14,7 +14,7 @@ function toXpBar(atomId: string, sentence: string, change: XpChange): XpBarChang
   return { atomId, sentence, xpBefore, xpAfter, xpGained, levelBefore, levelAfter };
 }
 
-type Extras = { dueCount: number; doorJustOpened: boolean };
+type Extras = { dueCount: number; openedDoors: OpenedDoor[] };
 
 // Puts the answer's outcome into the shape the browser gets (and the event row stores).
 export function buildAnswerResult(context: AnswerContext, kind: CardKind, grade: Grade, score: Score, extras: Extras): AnswerResult {
@@ -47,6 +47,7 @@ export function buildAnswerResult(context: AnswerContext, kind: CardKind, grade:
     learnerLevel: score.learner.levelAfter,
     learnerTotalXp: score.learner.totalXpAfter,
     dueCount: extras.dueCount,
-    doorJustOpened: extras.doorJustOpened,
+    doorJustOpened: extras.openedDoors.length > 0,
+    openedDoors: extras.openedDoors,
   };
 }

@@ -34,6 +34,13 @@
   --color-xp: #0047ab;
   --color-clout: #8a4b00;
 
+  /* Trial door: cobalt leaf, black frame, school-bus-yellow light behind it */
+  --color-door-fill: #0047ab;
+  --color-door-edge: #141414;
+  --color-door-ink: #ffffff;
+  --color-door-light: #ffc800;
+  --color-scrim: rgb(20 20 20 / 0.75);
+
   /* Level 1 paper, 2 bronze, 3 silver, 4 gold, 5 and above prismatic */
   --color-level-1-fill: #efe4c6;
   --color-level-1-edge: #8a7f66;
@@ -64,4 +71,5 @@
   --transition-duration-slow: 600ms;
   --transition-duration-bar-fill: 700ms;
   --transition-duration-count: 900ms;
+  --transition-duration-unveil: 1800ms;
 }

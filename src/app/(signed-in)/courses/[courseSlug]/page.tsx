@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { LectureRow } from "@/components/course/LectureRow";
+import { PendingDoorUnveilings } from "@/components/course/PendingDoorUnveilings";
 import { TodayHeader } from "@/components/course/TodayHeader";
 import { requireLearner } from "@/server/access";
 import { getCourseView } from "@/server/queries/getCourseView";
@@ -17,6 +18,11 @@ export default async function CoursePage({ params, searchParams }: PageProps<"/c
   ]);
   if (!courseView) notFound();
 
+  // Doors that opened but whose unveiling never played (the tab closed first): it plays now.
+  const doorsToUnveil = courseView.lectures
+    .filter((lecture) => lecture.door?.isOpen && !lecture.door.isUnveiled)
+    .map((lecture) => ({ lectureId: lecture.lectureId, lectureNumber: lecture.number }));
+
   return (
     <main className="mx-auto max-w-3xl p-4">
       <TodayHeader today={courseView.today} nextDueDate={nextDueDate} />
@@ -32,6 +38,7 @@ export default async function CoursePage({ params, searchParams }: PageProps<"/c
           </li>
         ))}
       </ol>
+      <PendingDoorUnveilings doors={doorsToUnveil} />
     </main>
   );
 }

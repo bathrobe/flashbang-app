@@ -43,6 +43,14 @@
   --color-xp: #333333;
   --color-clout: #333333;
 
+  /* Trial door: the door leaf, its frame, text on it, the light behind it once
+     open, and the dimmed page behind the unveiling overlay */
+  --color-door-fill: #888888;
+  --color-door-edge: #222222;
+  --color-door-ink: #ffffff;
+  --color-door-light: #ffffff;
+  --color-scrim: rgb(0 0 0 / 0.7);
+
   /* Atom level looks: fill, edge and ink for Level 1 to 5 (5 also covers every level above) */
   --color-level-1-fill: #f5f5f5;
   --color-level-1-edge: #777777;
@@ -75,6 +83,7 @@
   --transition-duration-slow: 600ms;
   --transition-duration-bar-fill: 700ms; /* one XP bar segment filling (feedback panel) */
   --transition-duration-count: 900ms; /* the clout counter running from old to new */
+  --transition-duration-unveil: 1800ms; /* the trial door swinging open */
 
   /* The All in wipe's moment of emphasis: a hard shake in steps, no colour of its own */
   --animate-wipe: wipe-shake var(--transition-duration-slow) steps(6, end) 1;
@@ -84,6 +93,19 @@
     40% { transform: translateX(6px) scale(1.08); }
     60% { transform: translateX(-4px) scale(1.04); }
     80% { transform: translateX(4px) scale(1.04); }
+  }
+
+  /* The trial door's unveiling: the leaf swings open on its left hinge, in steps */
+  --animate-door-swing: door-swing var(--transition-duration-unveil) steps(9, end) forwards;
+  @keyframes door-swing {
+    from { transform: perspective(600px) rotateY(0deg); }
+    to { transform: perspective(600px) rotateY(-80deg); }
+  }
+  /* The words behind the door fade in once it has opened */
+  --animate-door-reveal: door-reveal var(--transition-duration-unveil) steps(4, end) forwards;
+  @keyframes door-reveal {
+    0%, 70% { opacity: 0; }
+    100% { opacity: 1; }
   }
 }
 

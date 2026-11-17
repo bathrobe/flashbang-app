@@ -129,7 +129,7 @@ The build cannot do these itself. If one is not ready, record it in this list as
   Acceptance: From `prd.md > Sound and Motion`: sounds for correct, wrong (gentle), level-up, All in wipe and door unveiling exist; the navbar toggle turns all sound off; with sound off every event is still shown on screen; reduced motion hides nothing.
   Verify: Run `pnpm dev`, answer right and wrong with sound on and confirm two different sounds. Switch sound off and confirm silence with the same visuals. Turn on the system's reduce-motion setting and confirm bars jump to their final value.
 
-- [ ] **14. The end screen lists what was earned today and draws the session map**
+- [x] **14. The end screen lists what was earned today and draws the session map**
   Spec ref: `spec.md > End Screen > Today's summary`, `> Session map`
   What to build: `getTodaySummary` built from today's non-voided `review_event` rows, `review/done/page.tsx`, `SpoilsList.tsx`, `SessionTotals.tsx` and `SessionMap.tsx` as a hand-drawn SVG with no library. The "Keep going" and "Done for today" pair is added in item 19.
   Acceptance: From `prd.md > End Screen`: each atom reviewed with the XP it gained, counting up one after another; linked-only atoms listed separately; level-ups called out; clout change and new balance; trial door progress; the next due date; a map with a line between any two atoms that share a question; no battle wording; one control back to the course view; a resumed session is covered in full.

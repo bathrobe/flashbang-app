@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { useHud } from "@/components/hud/HudProvider";
+import { DoorUnveilingQueue } from "@/components/course/DoorUnveilingQueue";
 import { FeedbackPanel } from "@/components/feedback/FeedbackPanel";
 import { Button } from "@/components/ui/Button";
-import type { AnswerResult } from "@/server/answerTypes";
+import type { AnswerResult, OpenedDoor } from "@/server/answerTypes";
 import type { ShowableCard } from "@/server/cardTypes";
 import { submitAnswer } from "@/server/actions/submitAnswer";
 import { useReducedMotion } from "@/lib/useReducedMotion";
@@ -29,6 +30,8 @@ export function CardShowing({ card, attemptId, onDone }: CardShowingProps) {
   const { updateHud } = useHud();
   const prefersReducedMotion = useReducedMotion();
   const [submission, setSubmission] = useState<Submission>({ status: "answering" });
+  // Set by Continue on an answer that opened a trial door: the unveiling plays, then the session moves on.
+  const [doorsToUnveil, setDoorsToUnveil] = useState<OpenedDoor[] | null>(null);
 
   // No timeout of our own: a database waking up can take several seconds.
   // A resend after a failure uses the SAME attemptId, so it can never count twice.
@@ -60,13 +63,18 @@ export function CardShowing({ card, attemptId, onDone }: CardShowingProps) {
     );
   }
   if (submission.status === "answered") {
+    const needsRetry = !submission.result.wasCorrect;
+    const openedDoors = submission.result.openedDoors ?? [];
     afterAnswer = (
-      <FeedbackPanel
-        result={submission.result}
-        confidenceStep={submission.answer.confidenceStep}
-        animate={!prefersReducedMotion}
-        onContinue={() => onDone(!submission.result.wasCorrect)}
-      />
+      <>
+        <FeedbackPanel
+          result={submission.result}
+          confidenceStep={submission.answer.confidenceStep}
+          animate={!prefersReducedMotion}
+          onContinue={() => (openedDoors.length > 0 ? setDoorsToUnveil(openedDoors) : onDone(needsRetry))}
+        />
+        {doorsToUnveil && <DoorUnveilingQueue doors={doorsToUnveil} onAllClosed={() => onDone(needsRetry)} />}
+      </>
     );
   }
 

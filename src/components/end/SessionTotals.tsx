@@ -42,9 +42,10 @@ export function SessionTotals({ today, atomLevelUps, learnerLevelUp, clout, door
       </p>
 
       {doorProgress.map((door) => (
-        <p key={door.lectureNumber} data-door-progress={`${door.atomsAtDoorLevel}/${door.atomCount}`}>
-          Lecture {door.lectureNumber} trial door: {door.atomsAtDoorLevel} of {door.atomCount} atoms at Level{" "}
-          {door.doorLevel}
+        <p key={door.lectureNumber} data-door-progress={door.isOpen ? "open" : `${door.atomsAtDoorLevel}/${door.atomCount}`}>
+          {door.isOpen
+            ? `Lecture ${door.lectureNumber} trial door: open. Coming soon.`
+            : `Lecture ${door.lectureNumber} trial door: ${door.atomsAtDoorLevel} of ${door.atomCount} atoms at Level ${door.doorLevel}`}
         </p>
       ))}
 
