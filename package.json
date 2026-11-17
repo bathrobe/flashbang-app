@@ -12,8 +12,8 @@
     "db:migrate": "dotenv -e .env.local -- drizzle-kit migrate",
     "db:migrate:prod": "dotenv -e .env.production.local -- drizzle-kit migrate",
     "db:seed": "dotenv -e .env.local -- tsx scripts/seedCourse.ts",
-    "content": "echo \"Not built yet: added in checklist item 5\" && exit 1",
-    "content:prod": "echo \"Not built yet: added in checklist item 5\" && exit 1"
+    "content": "dotenv -e .env.local -- tsx scripts/content.ts",
+    "content:prod": "dotenv -e .env.production.local -- tsx scripts/content.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "1.2.1",

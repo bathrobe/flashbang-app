@@ -59,7 +59,7 @@ The build cannot do these itself. If one is not ready, record it in this list as
   Acceptance: Both branches hold all tables. The `dev` and production `lecture` tables each have 24 rows, all `draft`. A transaction commits and rolls back on Vercel's runtime.
   Verify: Run `pnpm db:seed` twice and confirm the second run changes nothing. Open the transaction check on the Vercel address and confirm it reports success, then remove it.
 
-- [ ] **3. Joe can sign in with Google, and everyone else is turned away**
+- [x] **3. Joe can sign in with Google, and everyone else is turned away**
   Spec ref: `spec.md > Sign-In and Access` (all subsections); `spec.md > Runtime & Deployment > Environment variables`
   What to build: `src/server/auth.ts`, the `api/auth/[...all]` route, `src/lib/authClient.ts`, and Better Auth's four tables generated with its command-line tool into `schema/auth.ts` and migrated. `src/server/access.ts` with `getSignedInUser`, `requireLearner` and `requireAdmin`. The sign-in page, the not-open page, `(signed-in)/layout.tsx` calling `requireLearner()`, and a placeholder `/courses` page with a sign-out control. Set all environment variables in Vercel, with a different `BETTER_AUTH_SECRET` in each environment.
   Acceptance: From `prd.md > Signing In`: a signed-out visitor sees only the app name and one Google button; Joe lands on the courses view after signing in and stays signed in after closing the browser; any other account sees "This isn't open yet." with a sign-out control and no fields; a cancelled sign-in shows the one-line message; typing an inner address while signed out leads to sign-in.
