@@ -93,7 +93,7 @@ The build cannot do these itself. If one is not ready, record it in this list as
   Acceptance: From `prd.md > Navigation Bar`: the navbar is on every signed-in page; username and avatar, or an initial; a badge with the session count only when atoms are due; "Nothing due" with the next date otherwise; learner level and clout shown; the app name returns to the courses view; the sound choice is remembered for the account.
   Verify: Run `pnpm dev`, sign in, and confirm the navbar shows clout 100 and learner level 1. Toggle sound, reload, and confirm the toggle kept its state. Run `grep -rnE "#[0-9a-fA-F]{3,8}" src/components` and confirm no output.
 
-- [ ] **8. The courses view and course view show all 24 lectures and Lecture 1's atoms**
+- [x] **8. The courses view and course view show all 24 lectures and Lecture 1's atoms**
   Spec ref: `spec.md > Course Screens > Courses view`, `> Course view`, `> Begin-review control`, `> Atom token`
   What to build: `getCoursesList`, `getCourseView`, `courses/page.tsx`, `courses/[courseSlug]/page.tsx`, `BeginReview.tsx`, `LectureRow.tsx` and `AtomToken.tsx` with its popover. The three lecture states: published and started, published and not started, draft with seven empty slots.
   Acceptance: From `prd.md > Courses View` and `> Course View`: today's date in large type; one course entry showing title, lecturer, "1 of 24 lectures" and atoms due; all 24 lectures in order; unpublished lectures greyed with placeholder slots and not clickable; each atom item's look changes with level; hovering or clicking an item shows its sentence, level, XP toward the next level and next due date.
