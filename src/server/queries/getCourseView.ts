@@ -2,7 +2,7 @@ import { and, asc, eq } from "drizzle-orm";
 import { getDoorProgress } from "@/game/levels";
 import { database } from "@/server/db/client";
 import { course, lecture, lectureProgress } from "@/server/db/schema";
-import { findDueAtoms } from "./dueAtoms";
+import { findNextSessionAtoms } from "./nextSessionAtoms";
 import { getLearnerToday } from "./learnerToday";
 import { loadStartedLectureAtoms, type CourseViewAtom } from "./loadStartedLectureAtoms";
 
@@ -30,7 +30,7 @@ export async function getCourseView(userId: string, courseSlug: string, now: Dat
 
   const today = await getLearnerToday(userId, now);
 
-  const [lectureRows, dueAtoms] = await Promise.all([
+  const [lectureRows, nextSession] = await Promise.all([
     database
       .select({
         lectureId: lecture.id,
@@ -46,12 +46,14 @@ export async function getCourseView(userId: string, courseSlug: string, now: Dat
       .leftJoin(lectureProgress, and(eq(lectureProgress.lectureId, lecture.id), eq(lectureProgress.userId, userId)))
       .where(eq(lecture.courseId, courseRow.id))
       .orderBy(asc(lecture.number)),
-    findDueAtoms(userId, today),
+    // The next session's atoms, not every due atom: during an eased return
+    // this is the short count, so no backlog total is shown.
+    findNextSessionAtoms(userId, today),
   ]);
 
   const startedLectureIds = lectureRows.filter((row) => row.startedAt !== null).map((row) => row.lectureId);
   const atoms = await loadStartedLectureAtoms(userId, startedLectureIds);
-  const dueAtomIds = new Set(dueAtoms.map((dueAtom) => dueAtom.atomId));
+  const dueAtomIds = new Set(nextSession.atomIds);
 
   const lectures: CourseViewLecture[] = lectureRows.map((row) => {
     const state: LectureState =

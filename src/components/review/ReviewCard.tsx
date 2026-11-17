@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { Panel } from "@/components/ui/Panel";
 import type { ShowableCard } from "@/server/cardTypes";
 import { ConfidenceSlider } from "./ConfidenceSlider";
+import { QuestionImage } from "./QuestionImage";
 import { CardOptions } from "./formats/CardOptions";
 import type { OptionLook } from "./formats/OptionButton";
 import { StakeLine } from "./StakeLine";
@@ -35,7 +36,7 @@ export function ReviewCard({ card, onConfirm, isLocked, isSaving = false, lookBy
         <p className="w-fit border-thick border-outline bg-accent-2 px-2 font-display text-accent-2-ink">New</p>
       )}
 
-      {/* IMAGE SLOT (checklist item 20): <QuestionImage image={card.image} /> goes here; nothing for now. */}
+      <QuestionImage image={card.image} />
 
       <h1 className="text-xl font-bold">{card.prompt}</h1>
 

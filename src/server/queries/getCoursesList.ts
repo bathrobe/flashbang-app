@@ -1,7 +1,7 @@
 import { asc, count, eq, inArray } from "drizzle-orm";
 import { database } from "@/server/db/client";
 import { atom, course, lecture } from "@/server/db/schema";
-import { findDueAtoms } from "./dueAtoms";
+import { findNextSessionAtoms } from "./nextSessionAtoms";
 import { getLearnerToday } from "./learnerToday";
 
 export type CourseCard = {
@@ -17,17 +17,19 @@ export type CourseCard = {
 export async function getCoursesList(userId: string, now: Date = new Date()) {
   const today = await getLearnerToday(userId, now);
 
-  const [courseRows, publishedCounts, dueAtoms] = await Promise.all([
+  const [courseRows, publishedCounts, nextSession] = await Promise.all([
     database.select().from(course).orderBy(asc(course.title)),
     database
       .select({ courseId: lecture.courseId, publishedLectureCount: count() })
       .from(lecture)
       .where(eq(lecture.status, "published"))
       .groupBy(lecture.courseId),
-    findDueAtoms(userId, today),
+    // The next session's atoms, not every due atom: during an eased return
+    // this is the short count, so no backlog total is shown.
+    findNextSessionAtoms(userId, today),
   ]);
 
-  const dueCountByCourseId = await countDueAtomsByCourse(dueAtoms.map((dueAtom) => dueAtom.atomId));
+  const dueCountByCourseId = await countDueAtomsByCourse(nextSession.atomIds);
 
   const courses: CourseCard[] = courseRows.map((courseRow) => ({
     slug: courseRow.slug,

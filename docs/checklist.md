@@ -161,7 +161,7 @@ The build cannot do these itself. If one is not ready, record it in this list as
   Acceptance: From `prd.md > Authoring: The Author Page and Publishing`: publishing is one action for the whole lecture; it is refused with the reason if any atom has no questions; the lecture then shows "Start Lecture N"; edits take effect on the next card; editing wording or the correct option never changes XP, levels, intervals, due dates or past results.
   Verify: In `dev`, add an atom with no questions, press Publish and confirm the refusal names it. Add a draft question with `--append`, press "Publish drafts (1)", and confirm it becomes active. Edit a reviewed question's wording and confirm `atom_progress` is unchanged.
 
-- [ ] **19. After seven days away, a welcome-back message offers a short session of five**
+- [x] **19. After seven days away, a welcome-back message offers a short session of five**
   Spec ref: `spec.md > Welcome-Back Flow`; `spec.md > End Screen > Today's summary` (the "Keep going" line)
   What to build: `noteVisit` setting `eased_return_on` when the gap since `last_review_on` is seven days or more; the queue and inbox badge capped at 5 minus first attempts made today unless `/review?all=1`; `WelcomeBack.tsx` with `dismissWelcome`; "Keep going" beside an equally prominent "Done for today" on the end screen while atoms remain due.
   Acceptance: From `prd.md > Returning After a Gap`: the message greets the learner, says where they are, and names anything published since; one button starts about five atoms, most overdue first; the badge shows the short count; declining "Keep going" is as easy as accepting; no "overdue", streak or red backlog total; XP, levels and clout unchanged; shown once per return and dismissible.
