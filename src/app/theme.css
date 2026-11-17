@@ -73,6 +73,18 @@
   /* Animation times */
   --transition-duration-fast: 150ms;
   --transition-duration-slow: 600ms;
+  --transition-duration-bar-fill: 700ms; /* one XP bar segment filling (feedback panel) */
+  --transition-duration-count: 900ms; /* the clout counter running from old to new */
+
+  /* The All in wipe's moment of emphasis: a hard shake in steps, no colour of its own */
+  --animate-wipe: wipe-shake var(--transition-duration-slow) steps(6, end) 1;
+  @keyframes wipe-shake {
+    0%, 100% { transform: translateX(0) scale(1); }
+    20% { transform: translateX(-6px) scale(1.08); }
+    40% { transform: translateX(6px) scale(1.08); }
+    60% { transform: translateX(-4px) scale(1.04); }
+    80% { transform: translateX(4px) scale(1.04); }
+  }
 }
 
 /*

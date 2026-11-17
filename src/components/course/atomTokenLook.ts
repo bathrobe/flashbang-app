@@ -18,3 +18,25 @@ export const atomTokenSquare = "flex h-9 w-9 items-center justify-center rounded
 export function getAtomTokenLook(level: number) {
   return lookByLevel[Math.min(Math.max(level, 1), 5)];
 }
+
+// The same level looks split into parts, for the XP bar's segments: an empty
+// segment keeps the panel colour inside the level's edge.
+const edgeByLevel: Record<number, string> = {
+  1: "border-level-1-edge",
+  2: "border-level-2-edge",
+  3: "border-level-3-edge",
+  4: "border-level-4-edge",
+  5: "border-level-5-edge",
+};
+const fillByLevel: Record<number, string> = {
+  1: "bg-level-1-fill",
+  2: "bg-level-2-fill",
+  3: "bg-level-3-fill",
+  4: "bg-level-4-fill",
+  5: "bg-level-5-fill",
+};
+
+export function getLevelEdgeAndFill(level: number) {
+  const lookLevel = Math.min(Math.max(level, 1), 5);
+  return { edge: edgeByLevel[lookLevel], fill: fillByLevel[lookLevel] };
+}

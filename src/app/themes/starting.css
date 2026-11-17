@@ -62,4 +62,6 @@
 
   --transition-duration-fast: 120ms;
   --transition-duration-slow: 600ms;
+  --transition-duration-bar-fill: 700ms;
+  --transition-duration-count: 900ms;
 }

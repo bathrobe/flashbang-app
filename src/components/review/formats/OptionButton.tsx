@@ -25,6 +25,9 @@ const spokenStateByLook: Record<OptionLook, string> = {
   missed: " (missed: this one was correct)",
 };
 
+// A visible mark too, so a graded option never relies on colour alone.
+const visibleMarkByLook: Record<OptionLook, string> = { resting: "", chosen: "", correct: "✓", wrong: "✗", missed: "missed" };
+
 const hoverLook = "cursor-pointer hover:bg-accent-2 hover:text-accent-2-ink";
 
 type OptionButtonProps = {
@@ -51,6 +54,11 @@ export function OptionButton({ text, look, isChosen, selectionRole, isLocked, on
         `focus-visible:outline-outline disabled:cursor-default ${coloursByLook[look]} ${canHover ? hoverLook : ""}`
       }
     >
+      {visibleMarkByLook[look] && (
+        <span aria-hidden="true" className="float-right ml-2 font-number">
+          {visibleMarkByLook[look]}
+        </span>
+      )}
       {text}
       <span className="sr-only">{spokenStateByLook[look]}</span>
     </button>

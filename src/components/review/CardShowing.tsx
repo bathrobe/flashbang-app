@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { useHud } from "@/components/hud/HudProvider";
+import { FeedbackPanel } from "@/components/feedback/FeedbackPanel";
 import { Button } from "@/components/ui/Button";
 import type { AnswerResult } from "@/server/answerTypes";
 import type { ShowableCard } from "@/server/cardTypes";
 import { submitAnswer } from "@/server/actions/submitAnswer";
-import { AnswerOutcome } from "./AnswerOutcome";
 import { getGradedOptionLooks } from "./formats/getGradedOptionLooks";
 import { ReviewCard, type CardAnswer } from "./ReviewCard";
 
@@ -22,7 +22,8 @@ type CardShowingProps = {
   onDone: (frontAtomNeedsRetry: boolean) => void;
 };
 
-// One showing of one card: answer, save, then the result and Continue.
+// One showing of one card: answer, save, then the feedback panel and Continue.
+// The HUD (navbar clout, level, inbox badge) is updated from each result, no reload needed.
 export function CardShowing({ card, attemptId, onDone }: CardShowingProps) {
   const { updateHud } = useHud();
   const [submission, setSubmission] = useState<Submission>({ status: "answering" });
@@ -57,7 +58,13 @@ export function CardShowing({ card, attemptId, onDone }: CardShowingProps) {
     );
   }
   if (submission.status === "answered") {
-    afterAnswer = <AnswerOutcome result={submission.result} onContinue={() => onDone(!submission.result.wasCorrect)} />;
+    afterAnswer = (
+      <FeedbackPanel
+        result={submission.result}
+        confidenceStep={submission.answer.confidenceStep}
+        onContinue={() => onDone(!submission.result.wasCorrect)}
+      />
+    );
   }
 
   return (
