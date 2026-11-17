@@ -73,7 +73,7 @@ The build cannot do these itself. If one is not ready, record it in this list as
   Acceptance: From `prd.md > Answer Feedback and Scoring`: XP never decreases; only a first attempt changes interval and due date; clout never goes below zero; All in while correct gains at least 25; a retry earns 3 XP and changes nothing else. Level 3 is at 40 XP.
   Verify: Run `pnpm test` and confirm every test passes, including the Level 3 by day 14 replay.
 
-- [ ] **5. The content script can list, add and export a lecture's atoms and questions**
+- [x] **5. The content script can list, add and export a lecture's atoms and questions**
   Spec ref: `spec.md > Content Pipeline > Content rules`, `> Question lint`, `> Content script`
   What to build: `src/content/questionShape.ts`, `questionSetShape.ts`, `lintQuestion.ts`, `insertAtoms.ts`, `insertQuestions.ts`, `updateQuestion.ts` and `publishLecture.ts`. `scripts/content.ts` with `scripts/contentCommands/` for `list`, `add-atoms`, `add-questions`, `add-questions --append` and `export`, reading JSON from standard input. `pnpm content` targets `dev`; `pnpm content:prod` targets production. `tests/content/lintQuestion.test.ts`.
   Acceptance: A batch with a shape error inserts nothing and names the error. Lint warnings print and do not block. A first generation is refused unless each atom has six questions, two per format, exactly one introductory. Questions arrive with status `draft`.
