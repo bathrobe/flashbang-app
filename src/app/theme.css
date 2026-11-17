@@ -95,3 +95,20 @@
 @utility shadow-hard {
   box-shadow: var(--shadow-hard);
 }
+
+/*
+  Reduced motion (the system setting): every CSS transition and animation
+  finishes almost at once. 1ms rather than 0 so "animation finished" events
+  still fire. Nothing is hidden, only sped up. The JavaScript-driven bars and
+  counters jump to their final values through useReducedMotion instead.
+*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}

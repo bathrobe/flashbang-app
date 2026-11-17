@@ -1,7 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import type { ConfidenceStep } from "@/game/settings";
+import { playSound } from "@/lib/sound";
+import { chooseAnswerSound } from "./chooseAnswerSound";
 import { Button } from "@/components/ui/Button";
 import { Panel } from "@/components/ui/Panel";
 import type { AnswerResult } from "@/server/answerTypes";
@@ -11,7 +13,7 @@ import { XpBarStack } from "./XpBarStack";
 type FeedbackPanelProps = {
   result: AnswerResult;
   confidenceStep: ConfidenceStep; // the step the answer was confirmed at (to spot an All in wipe)
-  animate?: boolean; // item 13 passes false under reduced motion: bars and counters jump to the end
+  animate?: boolean; // false under reduced motion: bars and counters jump to the end
   onContinue: () => void;
 };
 
@@ -21,14 +23,24 @@ type FeedbackPanelProps = {
 export function FeedbackPanel({ result, confidenceStep, animate = true, onContinue }: FeedbackPanelProps) {
   const isAllInWipe = !result.wasCorrect && result.kind === "first" && confidenceStep === "all_in" && result.cloutBefore > 0;
 
-  // SOUND SLOT (item 13), on first show: playSound(result.wasCorrect ? "correct" : "wrong"),
-  // and playSound("all-in-wipe") when isAllInWipe.
-  // Level-ups: the bars report each one as it is shown; the sound plays once per answer.
+  // Sounds only add to what is on screen: every event here is also shown, so
+  // with sound off nothing is lost.
+  const hasLevelUp = result.atomLevelUps.length > 0 || result.learnerLevelUp !== null;
+  const answerSoundPlayed = useRef(false);
+  useEffect(() => {
+    // The ref stops a second play when React runs effects twice in development.
+    if (answerSoundPlayed.current) return;
+    answerSoundPlayed.current = true;
+    playSound(chooseAnswerSound({ wasCorrect: result.wasCorrect, isAllInWipe, hasLevelUp, animate }));
+  }, [result.wasCorrect, isAllInWipe, hasLevelUp, animate]);
+
+  // Level-ups: the bars report each one as it is shown; the jingle plays once
+  // per answer, at the first one. (Without animation it played above instead.)
   const levelUpSoundPlayed = useRef(false);
   function handleLevelUp() {
     if (levelUpSoundPlayed.current) return;
     levelUpSoundPlayed.current = true;
-    // SOUND SLOT (item 13): playSound("level-up")
+    playSound("level-up");
   }
 
   return (

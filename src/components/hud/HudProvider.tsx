@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { setSoundEnabled } from "@/lib/sound";
 import type { HudValues } from "@/server/queries/getHudValues";
 
 // The heads-up values (clout, level, inbox count, sound) for every signed-in
@@ -26,6 +27,9 @@ export function HudProvider({ valuesFromServer, children }: { valuesFromServer: 
     setLastServerText(serverText);
     setValues(valuesFromServer);
   }
+
+  // Keep playSound (src/lib/sound.ts) in step with the speaker toggle.
+  useEffect(() => setSoundEnabled(values.soundOn), [values.soundOn]);
 
   function updateHud(changes: Partial<HudValues>) {
     setValues((currentValues) => ({ ...currentValues, ...changes }));

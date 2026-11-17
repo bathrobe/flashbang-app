@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 import type { AnswerResult } from "@/server/answerTypes";
 import type { ShowableCard } from "@/server/cardTypes";
 import { submitAnswer } from "@/server/actions/submitAnswer";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 import { getGradedOptionLooks } from "./formats/getGradedOptionLooks";
 import { ReviewCard, type CardAnswer } from "./ReviewCard";
 
@@ -26,6 +27,7 @@ type CardShowingProps = {
 // The HUD (navbar clout, level, inbox badge) is updated from each result, no reload needed.
 export function CardShowing({ card, attemptId, onDone }: CardShowingProps) {
   const { updateHud } = useHud();
+  const prefersReducedMotion = useReducedMotion();
   const [submission, setSubmission] = useState<Submission>({ status: "answering" });
 
   // No timeout of our own: a database waking up can take several seconds.
@@ -62,6 +64,7 @@ export function CardShowing({ card, attemptId, onDone }: CardShowingProps) {
       <FeedbackPanel
         result={submission.result}
         confidenceStep={submission.answer.confidenceStep}
+        animate={!prefersReducedMotion}
         onContinue={() => onDone(!submission.result.wasCorrect)}
       />
     );
