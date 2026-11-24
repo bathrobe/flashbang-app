@@ -1,0 +1,525 @@
+{
+  "lecture": {
+    "number": 1,
+    "title": "Why Athenian Democracy Matters"
+  },
+  "atoms": [
+    {
+      "id": "f11da4c5-e6a4-4d2c-a2cd-df5cc95f7ac5",
+      "sentence": "Athenian democracy rested on two pillars: direct political participation and equality before the law, including trial by a jury of one's peers.",
+      "blurb": "The political pillar meant citizens voted on decisions themselves, with no representatives in between. The legal pillar meant one law for every citizen, applied by juries of ordinary citizens.",
+      "quote": {
+        "text": "The political base was the right of direct participation in the decision-making process. The legal base was equality before the law and the right to be judged by a jury of your peers. These were the twin pillars of Athenian democracy.",
+        "timestamp": "00:06:00"
+      },
+      "transcriptRef": "transcripts/01-why-athenian-democracy-matters.md [00:06:00, 00:29:01]",
+      "questions": [
+        {
+          "id": "c09dabe0-a08a-411f-8fc7-9ba6ff8b1b1b",
+          "format": "multi_select",
+          "rung": "recall",
+          "prompt": "Which two of these were the pillars of Athenian democracy?",
+          "options": [
+            {
+              "text": "Direct political participation",
+              "isCorrect": true
+            },
+            {
+              "text": "Election of representatives",
+              "isCorrect": false
+            },
+            {
+              "text": "Equality before the law",
+              "isCorrect": true
+            },
+            {
+              "text": "Rule by political parties",
+              "isCorrect": false
+            },
+            {
+              "text": "A written bill of rights",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "8e2ce7d6-5cbc-4d38-9e0f-cc96e220928a",
+          "format": "multiple_choice",
+          "rung": "recall",
+          "prompt": "Who decided legal cases under Athenian democracy?",
+          "options": [
+            {
+              "text": "Juries of ordinary citizens",
+              "isCorrect": true
+            },
+            {
+              "text": "Panels of trained judges",
+              "isCorrect": false
+            },
+            {
+              "text": "Councils of elder nobles",
+              "isCorrect": false
+            },
+            {
+              "text": "Boards of elected generals",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "2a223c6a-b742-4a37-ac5c-c09aa94aed48",
+          "format": "multiple_choice",
+          "rung": "apply",
+          "prompt": "A new war is proposed in Athens. Who votes on it?",
+          "options": [
+            {
+              "text": "The citizens themselves",
+              "isCorrect": true
+            },
+            {
+              "text": "Their elected deputies",
+              "isCorrect": false
+            },
+            {
+              "text": "The elected generals",
+              "isCorrect": false
+            },
+            {
+              "text": "An elected council",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "59044ce1-5ef7-44c7-a78b-ad3372390c0b",
+      "sentence": "Athens filled every office of state by sortition, with one exception: the generals, who were elected.",
+      "blurb": "Sortition means drawing names by lot. No office required any qualification, so any citizen could end up holding one. Military command was the single job where expertise was not left to chance.",
+      "quote": {
+        "text": "…lot determined all offices of state, apart from the generalship, which was decided on popular vote. It literally takes my breath away, this astounding faith in every man.",
+        "timestamp": "00:31:01"
+      },
+      "transcriptRef": "transcripts/01-why-athenian-democracy-matters.md [00:06:00, 00:31:01]",
+      "image": {
+        "path": "/question-images/kleroterion.jpg",
+        "caption": "A kleroterion, the Athenian allotment machine. Each citizen's bronze name-ticket went into a slot. A random draw of black and white balls then accepted or rejected a whole row at a time.",
+        "credit": "Ancient Agora Museum, Athens. Marsyas, CC BY-SA 2.5, via Wikimedia Commons."
+      },
+      "matchPair": {
+        "front": "Generals",
+        "back": "Chosen by election"
+      },
+      "questions": [
+        {
+          "id": "a7fc7150-33e1-4111-a4da-21c11fc73a23",
+          "format": "true_false",
+          "rung": "recognise",
+          "prompt": "Athens filled most of its offices of state by election.",
+          "options": [
+            {
+              "text": "True",
+              "isCorrect": false
+            },
+            {
+              "text": "False",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": "cc4b5e76-3c3f-4d8d-b2f6-69defa7ff2d8",
+          "format": "fill_blank",
+          "rung": "recall",
+          "prompt": "Athens filled nearly every office of state by ___.",
+          "options": [
+            {
+              "text": "sortition",
+              "isCorrect": true
+            },
+            {
+              "text": "election",
+              "isCorrect": false
+            },
+            {
+              "text": "inheritance",
+              "isCorrect": false
+            },
+            {
+              "text": "examination",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "5b0773b1-d276-4014-8c2f-743c4b8ae570",
+          "format": "fill_blank",
+          "rung": "recall",
+          "prompt": "Only one kind of Athenian official was chosen by vote: the ___.",
+          "options": [
+            {
+              "text": "generals",
+              "isCorrect": true
+            },
+            {
+              "text": "magistrates",
+              "isCorrect": false
+            },
+            {
+              "text": "councillors",
+              "isCorrect": false
+            },
+            {
+              "text": "jurors",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "ee6cc569-d586-4e46-a58f-3bafda68a2d5",
+          "format": "multiple_choice",
+          "rung": "recall",
+          "prompt": "What does sortition mean?",
+          "options": [
+            {
+              "text": "Choosing by lot",
+              "isCorrect": true
+            },
+            {
+              "text": "Choosing by vote",
+              "isCorrect": false
+            },
+            {
+              "text": "Choosing by birth",
+              "isCorrect": false
+            },
+            {
+              "text": "Choosing by wealth",
+              "isCorrect": false
+            }
+          ],
+          "imageUse": "never",
+          "checkedByHand": "Names the word 'sortition', which is the answer to a fill-the-blank on this atom. Joe approved it: the word alone does not say what Athens used it for."
+        },
+        {
+          "id": "2dba3168-02f3-4fa4-8130-74de9192d467",
+          "format": "multiple_choice",
+          "rung": "apply",
+          "prompt": "An Athenian with no experience wants a typical office of state. What must happen first?",
+          "options": [
+            {
+              "text": "His name must be drawn",
+              "isCorrect": true
+            },
+            {
+              "text": "He must win a public vote",
+              "isCorrect": false
+            },
+            {
+              "text": "He must pass a set exam",
+              "isCorrect": false
+            },
+            {
+              "text": "He must pay an entry fee",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e9373845-8911-4ea7-80d4-82658d849fc2",
+      "sentence": "Athenian democracy had three standing contradictions: Athens was a slave society, it denied women any political or legal identity, and it ran an empire it held by massacres.",
+      "blurb": "Slavery and the exclusion of women were normal across the ancient world, so these are contradictions from a modern point of view. Slave labour also gave many citizens the free time to attend the Assembly and hold office.",
+      "quote": {
+        "text": "…they were also a people who considered women, slaves, and non-Greeks to be biologically and intellectually inferior, who committed brutal acts of barbarism against non-combatants in time of war and selfishly exploited their fellow Greeks in the furtherance of their aggressive imperialistic aims.",
+        "timestamp": "00:17:02"
+      },
+      "transcriptRef": "transcripts/01-why-athenian-democracy-matters.md [00:14:01]",
+      "questions": [
+        {
+          "id": "e84bd969-a7a9-4700-9dbb-6592e4694bd3",
+          "format": "multi_select",
+          "rung": "recall",
+          "prompt": "Which three of these were true of democratic Athens?",
+          "options": [
+            {
+              "text": "It was a slave society",
+              "isCorrect": true
+            },
+            {
+              "text": "It barred the poor from office",
+              "isCorrect": false
+            },
+            {
+              "text": "It gave women no legal identity",
+              "isCorrect": true
+            },
+            {
+              "text": "It punished free public speech",
+              "isCorrect": false
+            },
+            {
+              "text": "It held an empire by massacre",
+              "isCorrect": true
+            },
+            {
+              "text": "It banned private wealth",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "eba14ec4-445d-4e02-a436-b3fc5f2afb5d",
+          "format": "multiple_choice",
+          "rung": "apply",
+          "prompt": "An Athenian woman is cheated in a business deal. Can she take the case to court herself?",
+          "options": [
+            {
+              "text": "No, she has no legal identity",
+              "isCorrect": true
+            },
+            {
+              "text": "No, unless she is wealthy",
+              "isCorrect": false
+            },
+            {
+              "text": "Yes, once she is married",
+              "isCorrect": false
+            },
+            {
+              "text": "Yes, like any citizen",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "terms": [
+    {
+      "id": "d301bfb7-75bc-4bef-8bea-fb952ce63c93",
+      "word": "dēmokratia",
+      "greek": "δημοκρατία",
+      "meaning": "People power",
+      "description": "Rule by the dēmos. The catch is who the dēmos is: the whole citizen body, or only the poor majority as opposed to the wealthy few.",
+      "transcriptRef": "transcripts/01-why-athenian-democracy-matters.md [00:12:04]"
+    },
+    {
+      "id": "6854fdb2-14e6-46d6-8a45-0717fce800f4",
+      "word": "isonomia",
+      "greek": "ἰσονομία",
+      "meaning": "Equal laws for all",
+      "description": "The older name for rule by the masses. Herodotus calls it \"the most beautiful name of all\".",
+      "transcriptRef": "transcripts/01-why-athenian-democracy-matters.md [00:13:06]"
+    },
+    {
+      "id": "7aab8949-b1a9-4ab9-8f68-f17e6ff59be5",
+      "word": "parrhēsia",
+      "greek": "παρρησία",
+      "meaning": "Say everything",
+      "description": "The Athenian equivalent of freedom of speech.",
+      "transcriptRef": "transcripts/01-why-athenian-democracy-matters.md [00:14:01]"
+    }
+  ],
+  "people": [
+    {
+      "id": "1d18e560-5d20-4c62-96fc-96e42b356afd",
+      "name": "Thucydides",
+      "role": "Historian",
+      "origin": "Athenian",
+      "dates": "c. 460 to c. 400 BC",
+      "description": "Wrote the history of the Peloponnesian War after Athens banished him in 424. His paired speeches are the best record of how the Assembly made decisions. He was a conservative who despised the mob.",
+      "transcriptRef": "transcripts/01-why-athenian-democracy-matters.md [00:19:02]",
+      "image": {
+        "path": "/question-images/thucydides.jpg",
+        "caption": "Thucydides. A plaster cast of a Roman copy of a Greek bust.",
+        "credit": "Plaster cast, Moscow. shakko, CC BY-SA 3.0, via Wikimedia Commons."
+      },
+      "matchPair": {
+        "front": "Thucydides",
+        "back": "The Peloponnesian War"
+      },
+      "questions": [
+        {
+          "id": "0f514d56-1bbe-43cc-93ea-f6db2d3d19bb",
+          "format": "multiple_choice",
+          "rung": "recall",
+          "prompt": "Which conflict is the subject of Thucydides' history?",
+          "options": [
+            {
+              "text": "The Persian Wars",
+              "isCorrect": false
+            },
+            {
+              "text": "The Peloponnesian War",
+              "isCorrect": true
+            },
+            {
+              "text": "The Trojan War",
+              "isCorrect": false
+            },
+            {
+              "text": "The Macedonian Wars",
+              "isCorrect": false
+            }
+          ],
+          "direction": "name_to_fact"
+        },
+        {
+          "id": "69e71e19-a222-4608-acc6-21832f3d9917",
+          "format": "multiple_choice",
+          "rung": "recall",
+          "prompt": "Who wrote the history of the Peloponnesian War?",
+          "options": [
+            {
+              "text": "Thucydides",
+              "isCorrect": true
+            },
+            {
+              "text": "Herodotus",
+              "isCorrect": false
+            },
+            {
+              "text": "Aristophanes",
+              "isCorrect": false
+            }
+          ],
+          "direction": "fact_to_name"
+        }
+      ]
+    },
+    {
+      "id": "e2424d56-c1fc-437f-9e3f-f90d8f35ada3",
+      "name": "Herodotus",
+      "role": "Historian",
+      "origin": "Halicarnassus",
+      "dates": "c. 484 to c. 425 BC",
+      "description": "Wrote about the Persian Wars in the 430s and 420s, a generation before Thucydides. He explained events by divine intervention.",
+      "transcriptRef": "transcripts/01-why-athenian-democracy-matters.md [00:19:02]",
+      "image": {
+        "path": "/question-images/herodotus.jpg",
+        "caption": "Herodotus. A Roman marble bust.",
+        "credit": "Metropolitan Museum of Art, CC0, via Wikimedia Commons."
+      },
+      "matchPair": {
+        "front": "Herodotus",
+        "back": "The Persian Wars"
+      },
+      "questions": [
+        {
+          "id": "8c317bb0-ed73-44a0-943a-67e747f1de57",
+          "format": "multiple_choice",
+          "rung": "recall",
+          "prompt": "Which conflict is the subject of Herodotus' history?",
+          "options": [
+            {
+              "text": "The Persian Wars",
+              "isCorrect": true
+            },
+            {
+              "text": "The Peloponnesian War",
+              "isCorrect": false
+            },
+            {
+              "text": "The Trojan War",
+              "isCorrect": false
+            },
+            {
+              "text": "The Macedonian Wars",
+              "isCorrect": false
+            }
+          ],
+          "direction": "name_to_fact"
+        },
+        {
+          "id": "c1b1641a-a3f2-4d61-88bb-767b26fc31b4",
+          "format": "multiple_choice",
+          "rung": "recall",
+          "prompt": "Who wrote the history of the Persian Wars?",
+          "options": [
+            {
+              "text": "Thucydides",
+              "isCorrect": false
+            },
+            {
+              "text": "Herodotus",
+              "isCorrect": true
+            },
+            {
+              "text": "Aristophanes",
+              "isCorrect": false
+            }
+          ],
+          "direction": "fact_to_name"
+        }
+      ]
+    },
+    {
+      "id": "cb9c24e6-c856-4851-b557-e0d7d3dc453d",
+      "name": "Aristophanes",
+      "role": "Comic playwright",
+      "origin": "Athenian",
+      "dates": "c. 446 to c. 386 BC",
+      "description": "Eleven of his comedies survive. They are set in the present, so they show how the democracy ran and what people thought of it. His plays are satire, and he mocked everyone.",
+      "transcriptRef": "transcripts/01-why-athenian-democracy-matters.md [00:23:02]",
+      "image": {
+        "path": "/question-images/aristophanes.jpg",
+        "caption": "Aristophanes. A Roman marble herm of the 1st century AD.",
+        "credit": "Uffizi Gallery, Florence. Alexander Mayatsky, CC BY-SA 4.0, via Wikimedia Commons."
+      },
+      "matchPair": {
+        "front": "Aristophanes",
+        "back": "Comic plays"
+      },
+      "questions": [
+        {
+          "id": "9ba034f4-ec0c-4db6-a5ec-2f6b88e609e1",
+          "format": "multiple_choice",
+          "rung": "recall",
+          "prompt": "What did Aristophanes write?",
+          "options": [
+            {
+              "text": "Comic plays",
+              "isCorrect": true
+            },
+            {
+              "text": "Tragic plays",
+              "isCorrect": false
+            },
+            {
+              "text": "War histories",
+              "isCorrect": false
+            },
+            {
+              "text": "Epic poems",
+              "isCorrect": false
+            }
+          ],
+          "direction": "name_to_fact"
+        },
+        {
+          "id": "fc11cc75-4238-427a-aa67-6b221b070a6f",
+          "format": "multiple_choice",
+          "rung": "recall",
+          "prompt": "Who wrote comic plays set in his own present?",
+          "options": [
+            {
+              "text": "Thucydides",
+              "isCorrect": false
+            },
+            {
+              "text": "Herodotus",
+              "isCorrect": false
+            },
+            {
+              "text": "Aristophanes",
+              "isCorrect": true
+            }
+          ],
+          "direction": "fact_to_name"
+        }
+      ]
+    }
+  ]
+}

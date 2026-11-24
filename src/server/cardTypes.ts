@@ -4,7 +4,8 @@
 // On purpose there is no isCorrect, no explanation and no atom sentence here:
 // the server grades, so the browser learns the answer only after submitting.
 
-export type QuestionFormat = "multiple_choice" | "multi_select" | "true_false";
+// A fill-the-blank is a multiple choice whose prompt has a ___ in it.
+export type QuestionFormat = "multiple_choice" | "multi_select" | "true_false" | "fill_blank";
 
 export type CardOption = { id: string; text: string };
 

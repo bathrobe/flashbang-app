@@ -13,7 +13,10 @@
     "db:migrate:prod": "dotenv -e .env.production.local -- drizzle-kit migrate",
     "db:seed": "dotenv -e .env.local -- tsx scripts/seedCourse.ts",
     "content": "dotenv -e .env.local -- tsx scripts/content.ts",
-    "content:prod": "dotenv -e .env.production.local -- tsx scripts/content.ts"
+    "content:prod": "dotenv -e .env.production.local -- tsx scripts/content.ts",
+    "lecture:check": "tsx scripts/checkLecture.ts",
+    "lecture:load": "dotenv -e .env.local -- tsx scripts/loadLecture.ts",
+    "lecture:load:prod": "dotenv -e .env.production.local -- tsx scripts/loadLecture.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "1.2.1",

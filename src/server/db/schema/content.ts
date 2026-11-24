@@ -17,6 +17,14 @@ const newId = () => crypto.randomUUID();
 
 export type QuestionOption = { id: string; text: string; isCorrect: boolean };
 
+// The three kinds of card a lecture yields. All three live in the `atom` table,
+// so progress, sessions and XP treat a term or a person exactly like an atom.
+export const cardKinds = ["atom", "term", "person"] as const;
+
+// Everything about a card beyond its sentence and blurb, as written in the
+// lecture file (quote, image, match pair, a term's word, a person's dates…).
+export type CardDetails = Record<string, unknown>;
+
 export const lecture = pgTable(
   "lecture",
   {
@@ -43,6 +51,10 @@ export const atom = pgTable(
       .references(() => lecture.id),
     position: integer("position").notNull(),
     sentence: text("sentence").notNull(),
+    kind: text("kind", { enum: cardKinds }).notNull().default("atom"),
+    // One or two more sentences. Part of the card, and shown as feedback.
+    blurb: text("blurb"),
+    details: jsonb("details").$type<CardDetails>(),
     transcriptRef: text("transcript_ref"),
     status: text("status", { enum: ["active", "retired"] })
       .notNull()
@@ -59,7 +71,9 @@ export const question = pgTable(
     mainAtomId: text("main_atom_id")
       .notNull()
       .references(() => atom.id),
-    format: text("format", { enum: ["multiple_choice", "multi_select", "true_false"] }).notNull(),
+    format: text("format", { enum: ["multiple_choice", "multi_select", "true_false", "fill_blank"] }).notNull(),
+    // recognise, recall or apply. Empty on questions made before lecture files.
+    rung: text("rung", { enum: ["recognise", "recall", "apply"] }),
     prompt: text("prompt").notNull(),
     options: jsonb("options").$type<QuestionOption[]>().notNull(),
     explanation: text("explanation").notNull(),

@@ -10,6 +10,7 @@ const componentByFormat = {
   multiple_choice: MultipleChoiceOptions,
   multi_select: MultiSelectOptions,
   true_false: TrueFalseOptions,
+  fill_blank: MultipleChoiceOptions,
 };
 
 // Shows the options in the right component for the question's format.
